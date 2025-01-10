@@ -25,21 +25,24 @@ public class GoalsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(day == 1)
+        switch (day)
         {
-            moneyGoal = 100;
-            soulGoal = 5;
+            case (1):
+                moneyGoal = 100;
+                soulGoal = 3;
+                break;
+
+            case (2):
+                moneyGoal = 200;
+                soulGoal = 6;
+                break;
+
+            case (3):
+                moneyGoal = 250;
+                soulGoal = 666;
+                break;
         }
-        if (day == 2)
-        {
-            moneyGoal = 200;
-            soulGoal = 10;
-        }
-        if (day == 3)
-        {
-            moneyGoal = 250;
-            soulGoal = 666;
-        }
+        
         moneyText.text = ("Money: " + money + ("/") + moneyGoal);
         soulText.text = ("Souls: " + souls + ("/") + soulGoal);
 
