@@ -7,17 +7,19 @@ public class GoalsScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI soulText;
+    [SerializeField] GameObject winScreen;
     public int money;
-    int moneyGoal;
-    int soulGoal;
+    public int moneyGoal;
+    public int soulGoal;
     public int souls;
-    int day;
+    public int day;
     // Start is called before the first frame update
     void Start()
     {
         day = 1;
         money = 0;
         souls = 0;
+        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,19 +28,26 @@ public class GoalsScript : MonoBehaviour
         if(day == 1)
         {
             moneyGoal = 100;
-            soulGoal = 50;
+            soulGoal = 5;
         }
         if (day == 2)
         {
-            moneyGoal = 170;
-            soulGoal = 100;
+            moneyGoal = 200;
+            soulGoal = 10;
         }
         if (day == 3)
         {
-            moneyGoal = 150;
-            soulGoal = 250;
+            moneyGoal = 250;
+            soulGoal = 666;
         }
         moneyText.text = ("Money: " + money + ("/") + moneyGoal);
         soulText.text = ("Souls: " + souls + ("/") + soulGoal);
+
+        if(day == 4)
+        {
+            winScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
