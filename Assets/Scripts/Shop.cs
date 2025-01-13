@@ -9,6 +9,8 @@ public class Shop : MonoBehaviour
 
     public int price1 = 50;
     public GameObject ShopUI;
+
+    private GameObject objectToSell;
     public void buyButton1()
     {
         if (goalScript.money >= price1)
@@ -36,14 +38,16 @@ public class Shop : MonoBehaviour
     {
         if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
         {
-            other.transform.parent.gameObject.SetActive(false);
-            Destroy(other.gameObject);
             if (other.gameObject.tag == "Deer")
             {
+                objectToSell = GameObject.Find("holdPos/Deer");
+                Destroy(objectToSell.gameObject);
                 goalScript.money += 50;
             }
             if (other.gameObject.tag == "Sheep")
             {
+                objectToSell = GameObject.Find("holdPos/Sheep");
+                Destroy(objectToSell.gameObject);
                 goalScript.money += 20;
             }
 

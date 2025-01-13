@@ -24,13 +24,16 @@ public class AnimalMovement : MonoBehaviour
     public bool isAlive = true;
     bool isDeer;
 
-
+    //ragdoll
+    [HideInInspector]
+    public ToggleRagdoll toggleRagdoll;
     
 
     // Start is called before the first frame update
     void Start()
     {
         CheckForSpecificChild();
+        toggleRagdoll = GetComponent<ToggleRagdoll>();
     }
 
     // Update is called once per frame
@@ -168,6 +171,7 @@ public class AnimalMovement : MonoBehaviour
     void Die()
     {
         isAlive = false;
+        toggleRagdoll.ragdollActive(true);
     }
 
 }
