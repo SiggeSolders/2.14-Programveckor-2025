@@ -11,6 +11,7 @@ public class PickUpSkript : MonoBehaviour
     public float pickUpRange = 100f; //how far the player can pickup the object from
     private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
     private GameObject heldObj; //object which we pick up
+    private Transform topObject;
     private Rigidbody heldObjRb; //rigidbody of object we pick up
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
@@ -31,7 +32,10 @@ public class PickUpSkript : MonoBehaviour
         {
             if (obj.transform.gameObject.tag == "CanPickUp")
             {
-                pickUpText.SetActive(true);
+                if(obj.transform.gameObject.tag == "CanPickUp")
+                {
+                    pickUpText.SetActive(true);
+                }
             }
         }
         else
@@ -39,7 +43,7 @@ public class PickUpSkript : MonoBehaviour
             pickUpText.SetActive(false);
         }
 
-            if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
+        if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
         {
             if (heldObj == null) //if currently not holding anything
             {
@@ -69,8 +73,8 @@ public class PickUpSkript : MonoBehaviour
             MoveObject(); //keep object position at holdPos
             if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
             {
-                ThrowObject();
                 StopClipping();
+                ThrowObject();
             }
 
         }
@@ -80,10 +84,21 @@ public class PickUpSkript : MonoBehaviour
         if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
         {
             heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-            heldObjRb = pickUpObj.GetComponent<Rigidbody>(); //assign Rigidbody
+            heldObjRb = pickUpObj.transform.GetComponent<Rigidbody>(); //assign Rigidbody
+            topObject = pickUpObj.transform.root;
             heldObjRb.isKinematic = true;
-            heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+            //heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
+            topObject.transform.parent = holdPos.transform;
             heldObj.layer = LayerNumber; //change the object layer to the holdLayer
+            foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
+            {
+                child.gameObject.layer = LayerNumber;
+                if (child.GetComponent<Collider>() != null)
+                {
+
+                }
+                //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+            }
             //make sure object doesnt collide with player, it can cause weird bugs
             Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
@@ -94,8 +109,14 @@ public class PickUpSkript : MonoBehaviour
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0; //object assigned back to default layer
         heldObjRb.isKinematic = false;
-        heldObj.transform.parent = null; //unparent object
+        foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
+        {
+            child.gameObject.layer = 0;
+            //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+        }
+        topObject.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
+
     }
     void MoveObject()
     {
@@ -108,7 +129,12 @@ public class PickUpSkript : MonoBehaviour
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0;
         heldObjRb.isKinematic = false;
-        heldObj.transform.parent = null;
+        foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
+        {
+            child.gameObject.layer = 0;
+            //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+        }
+        topObject.transform.parent = null;
         heldObjRb.AddForce(transform.forward * throwForce);
         heldObj = null;
     }
@@ -124,7 +150,6 @@ public class PickUpSkript : MonoBehaviour
         {
             //change object position to camera position 
             heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
-            //if your player is small, change the -0.5f to a smaller number (in magnitude) ie: -0.1f
         }
     }
 }
