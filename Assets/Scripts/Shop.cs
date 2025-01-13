@@ -18,7 +18,6 @@ public class Shop : MonoBehaviour
 
     }
     
-    [SerializeField] GameObject animal;
     GoalsScript goalScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -37,7 +36,8 @@ public class Shop : MonoBehaviour
     {
         if (other.gameObject.tag == "Animal")
         {
-            Destroy(animal);
+            other.transform.parent.gameObject.SetActive(false);
+            Destroy(other.gameObject);
             goalScript.money += 50;
         }
         if (other.gameObject.tag == "Player")
