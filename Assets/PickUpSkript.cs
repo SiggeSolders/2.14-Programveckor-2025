@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class PickUpSkript : MonoBehaviour
 {
     public GameObject player;
     public Transform holdPos;
+    public GameObject pickUpText;
 
     public float throwForce = 500f; //force at which the object is thrown at
     public float pickUpRange = 100f; //how far the player can pickup the object from
@@ -20,12 +22,24 @@ public class PickUpSkript : MonoBehaviour
     void Start()
     {
         LayerNumber = LayerMask.NameToLayer("HoldLayer"); //if your holdLayer is named differently make sure to change this ""
-
         //mouseLookScript = player.GetComponent<MouseLookScript>();
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
+        RaycastHit obj;
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out obj, pickUpRange))
+        {
+            if (obj.transform.gameObject.tag == "CanPickUp")
+            {
+                pickUpText.SetActive(true);
+            }
+        }
+        else
+        {
+            pickUpText.SetActive(false);
+        }
+
+            if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
         {
             if (heldObj == null) //if currently not holding anything
             {
