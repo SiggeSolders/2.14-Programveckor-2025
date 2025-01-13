@@ -14,7 +14,7 @@ public class ButtonScript : MonoBehaviour
     [SerializeField]private Slider sensetivity;
     [SerializeField] private TextMeshProUGUI sensetivitySliderText;
     int sensetivityNumber = 400;
-
+    [SerializeField] Slider volumeSlider;
     void Start()
     {
         
@@ -24,6 +24,15 @@ public class ButtonScript : MonoBehaviour
             sensetivitySliderText.text = "sensitivity (" + v.ToString("0")+")";
             sensetivityNumber = (int)v;
         });
+        if (!PlayerPrefs.HasKey("volume"))
+        {
+            PlayerPrefs.SetFloat("volume", 1);
+            load();
+        }
+        else
+        {
+            load();
+        }
         
     }
     private void Update()
@@ -49,5 +58,17 @@ public class ButtonScript : MonoBehaviour
         OptionsUI.SetActive(false);
         startScreanUI.SetActive(true);
     }
-    
+    public void changeVolume()
+    {
+        AudioListener.volume = volumeSlider.value;
+        save();
+    }
+    private void load()
+    {
+        volumeSlider.value = PlayerPrefs.GetFloat("volume");
+    }
+    private void save()
+    {
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+    }
 }
