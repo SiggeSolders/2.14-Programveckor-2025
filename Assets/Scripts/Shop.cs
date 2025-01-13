@@ -34,11 +34,19 @@ public class Shop : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Animal")
+        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
         {
             other.transform.parent.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            goalScript.money += 50;
+            if (other.gameObject.tag == "Deer")
+            {
+                goalScript.money += 50;
+            }
+            if (other.gameObject.tag == "Sheep")
+            {
+                goalScript.money += 20;
+            }
+
         }
         if (other.gameObject.tag == "Player")
         {

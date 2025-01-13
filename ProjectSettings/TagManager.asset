@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
-  - Animal
   - Undefined
   - CanPickUp
+  - Sheep
+  - Deer
+  - Animal
   layers:
   - Default
   - TransparentFX

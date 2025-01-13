@@ -11,6 +11,7 @@ public class Gun : MonoBehaviour
     private int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
+    [SerializeField] AudioSource gunShot;
 
     // Update is called once per frame
     void Start()
@@ -50,6 +51,7 @@ public class Gun : MonoBehaviour
     void Shoot ()
     {
         MuzzleFlash.Play();
+        gunShot.Play();
 
         currentAmmo--;
 

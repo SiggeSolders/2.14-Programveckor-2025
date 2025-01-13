@@ -9,6 +9,8 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
     [SerializeField] LayerMask groundLayer;
     [SerializeField] GameObject player;
+    [SerializeField] AudioSource walkingAudio;
+    [SerializeField] AudioSource runningAudio;
 
 
     //movement
@@ -20,6 +22,7 @@ public class AnimalMovement : MonoBehaviour
     bool isRunning;
     public float health = 50f;
     public bool isAlive = true;
+    bool isDeer;
 
 
     
@@ -27,7 +30,7 @@ public class AnimalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CheckForSpecificChild();
     }
 
     // Update is called once per frame
@@ -54,7 +57,15 @@ public class AnimalMovement : MonoBehaviour
     // går långsamt till slumpmässiga positioner innom den satta rangen
     void NaturalState()
     {
-        agent.speed = 2;
+        if (isDeer)
+        {
+            agent.speed = 4;
+        }
+        if(isDeer == false)
+        {
+            agent.speed = 2;
+        }
+
         if (!isWalking)
         {
             FindDestination();
@@ -66,6 +77,10 @@ public class AnimalMovement : MonoBehaviour
         if(Vector3.Distance(transform.position, destinationPoint) < 10)
         {
             isWalking = false;
+        }
+        if (!walkingAudio.isPlaying)
+        {
+            walkingAudio.Play();
         }
     }
 
@@ -87,7 +102,15 @@ public class AnimalMovement : MonoBehaviour
     //springer ifrån spelaren snabbt i en 35-graders vinkel
     void Run()
     {
-        agent.speed = 10;
+
+        if (gameObject.tag == "Deer")
+        {
+            agent.speed = 14;
+        }
+        if (gameObject.tag == "Sheep")
+        {
+            agent.speed = 7;
+        }
         //Springer åt motsatt håll från spelaren
         runDirection = (player.transform.position - transform.position).normalized;
         //Gör att den springer i en 35-graders vinkel
@@ -95,19 +118,43 @@ public class AnimalMovement : MonoBehaviour
         //avrundar direction till 1
         magnitude = runDirection.magnitude; 
         agent.SetDestination(transform.position - (runDirection * 5));
+        if (!runningAudio.isPlaying)
+        {
+            runningAudio.Play();
+        }
     }
 
+    void CheckForSpecificChild()
+    {
+        Transform child = transform.Find("deerCollider");
+
+        if (child != null)
+        {
+            isDeer = true;
+        }
+        else
+        {
+            isDeer = false;
+        }
+    }
 
     //När spelaren är innom triggern flyr djuret
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Player")
+        {
+            print("AAAAAAAAA");
             isRunning = true;
+        }
     }
     //När spelaren inte längre är nära går den tillbaka till natural state
     private void OnTriggerExit(Collider other)
     {
-        isRunning = false;
-        agent.speed = 2;
+        if (other.gameObject.tag == "Player")
+        {
+            print("nvm, we good");
+            isRunning = false;
+        }
     }
 
     public void TakeDamage(float amount)

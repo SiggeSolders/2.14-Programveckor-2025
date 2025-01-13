@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class AnimalSpawner : MonoBehaviour
 {
-    [SerializeField] GameObject animal;
-    int numberSpawned;
+    [SerializeField] GameObject deer;
+    [SerializeField] GameObject sheep;
+    int deerNumberSpawned;
+    int sheepNumberSpawned;
     GoalsScript goalsScript;
     int lastSpawnedDay = 0;
 
@@ -29,24 +31,35 @@ public class AnimalSpawner : MonoBehaviour
         switch (day)
         {
             case 1:
-                numberSpawned = 5;
+                deerNumberSpawned = 2;
+                sheepNumberSpawned = 5;
                 break;
             case 2:
-                numberSpawned = 10;
+                deerNumberSpawned = 3;
+                sheepNumberSpawned = 10;
                 break;
             case 3:
-                numberSpawned = 15;
+                deerNumberSpawned = 5;
+                sheepNumberSpawned = 15;
                 break;
             default:
-                numberSpawned = 0;
+                deerNumberSpawned = 0;
+                sheepNumberSpawned = 0;
                 break;
         }
-        for (int i = 0; i < numberSpawned; i++)
+        for (int i = 0; i < deerNumberSpawned; i++)
         {
             int spawnPointX = Random.Range(-10, 52);
             int spawnPointZ = Random.Range(-50, 46);
             Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
-            Instantiate(animal, spawnPoint, Quaternion.identity);
+            Instantiate(deer, spawnPoint, Quaternion.identity);
+        }
+        for (int i = 0; i < sheepNumberSpawned; i++)
+        {
+            int spawnPointX = Random.Range(-10, 52);
+            int spawnPointZ = Random.Range(-50, 46);
+            Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
+            Instantiate(sheep, spawnPoint, Quaternion.identity);
         }
     }
 }
