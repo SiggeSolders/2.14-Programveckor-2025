@@ -16,6 +16,11 @@ public class PlayerCamera : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (ButtonScript.sensitivityX == 0)
+        {
+            ButtonScript.sensitivityX += 400;
+            ButtonScript.sensitivityY += 400;
+        }
     }
 
     // Update is called once per frame
