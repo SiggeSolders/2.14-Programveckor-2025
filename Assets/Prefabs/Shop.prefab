@@ -94,6 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d3fe1b853c94bd46a8885ce791c83c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cost1Text: {fileID: 0}
+  price1: 50
+  ShopUI: {fileID: 3154022128007089437, guid: c7fc4d76c8827f14ab6f7596d54a218b, type: 3}
   animal: {fileID: 6693309167096628209, guid: 6735aea3a8f06564994741c6788bf3d5, type: 3}
 --- !u!1 &5414784607813561879
 GameObject:
