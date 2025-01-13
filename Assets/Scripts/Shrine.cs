@@ -18,7 +18,7 @@ public class Shrine : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Animal")
+        if(other.gameObject.tag == "Animal" || other.gameObject.tag == "Deer")
         {
             other.transform.parent.gameObject.SetActive(false);
             Destroy(other.gameObject);
