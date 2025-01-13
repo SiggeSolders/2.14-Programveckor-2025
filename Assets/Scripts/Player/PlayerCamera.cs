@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float sensitivityX;
-    public float sensitivityY;
+    
 
     public Transform oriantation;
 
@@ -22,8 +21,8 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensitivityX;
-        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensitivityY;
+        float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * ButtonScript.sensitivityX;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ButtonScript.sensitivityY;
 
         Yrotation += mouseX;
         Xrotation -= mouseY;

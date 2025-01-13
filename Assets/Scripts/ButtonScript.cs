@@ -7,19 +7,29 @@ using TMPro;
 
 public class ButtonScript : MonoBehaviour
 {
-    
+    public static float sensitivityX;
+    public static float sensitivityY;
     public GameObject startScreanUI;
     public GameObject OptionsUI;
     [SerializeField]private Slider sensetivity;
     [SerializeField] private TextMeshProUGUI sensetivitySliderText;
+    int sensetivityNumber = 400;
 
     void Start()
     {
+        
         OptionsUI.SetActive(false);
         sensetivity.onValueChanged.AddListener((v) =>
         {
             sensetivitySliderText.text = "sensitivity (" + v.ToString("0")+")";
+            sensetivityNumber = (int)v;
         });
+        
+    }
+    private void Update()
+    {
+        sensitivityX = sensetivityNumber;
+        sensitivityY = sensetivityNumber;
     }
     public void PlayGame()
     {
