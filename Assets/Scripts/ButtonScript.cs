@@ -13,27 +13,42 @@ public class ButtonScript : MonoBehaviour
     public GameObject OptionsUI;
     [SerializeField]private Slider sensetivity;
     [SerializeField] private TextMeshProUGUI sensetivitySliderText;
-    int sensetivityNumber = 400;
+    int sensetivityNumber;
     [SerializeField] Slider volumeSlider;
     void Start()
     {
         
         OptionsUI.SetActive(false);
-        sensetivity.onValueChanged.AddListener((v) =>
-        {
-            sensetivitySliderText.text = "sensitivity (" + v.ToString("0")+")";
-            sensetivityNumber = (int)v;
-        });
+        load();
+
         if (!PlayerPrefs.HasKey("volume"))
         {
             PlayerPrefs.SetFloat("volume", 1);
             load();
+            
         }
         else
         {
             load();
         }
-        
+        if (!PlayerPrefs.HasKey("sensitivity"))
+        {
+            PlayerPrefs.SetFloat("sensitivity", 400);
+            load();
+
+        }
+        else
+        {
+            load();
+        }
+        //sensetivitySliderText.text = "sensitivity (" + sensetivity.value + ")";
+        //sensetivityNumber = (int)sensetivity.value;
+        //sensetivity.onValueChanged.AddListener((v) =>
+        //{
+        //  sensetivitySliderText.text = "sensitivity (" + v.ToString("0") + ")";
+        //sensetivityNumber = (int)v;
+        //});
+
     }
     private void Update()
     {
@@ -58,6 +73,14 @@ public class ButtonScript : MonoBehaviour
         OptionsUI.SetActive(false);
         startScreanUI.SetActive(true);
     }
+
+    public void changeSensitivity()
+    {
+        Debug.Log("changeSensitivity(");
+        sensetivitySliderText.text = "sensitivity (" + sensetivity.value + ")";
+        sensetivityNumber = (int)sensetivity.value;
+        save();
+    }
     public void changeVolume()
     {
         AudioListener.volume = volumeSlider.value;
@@ -66,9 +89,12 @@ public class ButtonScript : MonoBehaviour
     private void load()
     {
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
+        sensetivity.value = PlayerPrefs.GetFloat("sensitivity");
     }
     private void save()
     {
         PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        PlayerPrefs.SetFloat("sensitivity", sensetivity.value);
+        
     }
 }
