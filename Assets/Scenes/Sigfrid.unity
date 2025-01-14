@@ -145,8 +145,8 @@ Transform:
   m_GameObject: {fileID: 39658275}
   serializedVersion: 2
   m_LocalRotation: {x: -0.3257224, y: 0.007687006, z: -0.1333925, w: 0.9359767}
-  m_LocalPosition: {x: 0.00028, y: 0.00258, z: -0.0004}
-  m_LocalScale: {x: 1, y: 1.4999306, z: 1.9221}
+  m_LocalPosition: {x: 0.00021, y: 0.00255, z: -0.00011}
+  m_LocalScale: {x: 1, y: 1.4999306, z: 1.8465998}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 868885219}
@@ -221,7 +221,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -331,7 +331,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -387,7 +387,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -607,7 +607,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -841,7 +841,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -1074,11 +1074,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
       propertyPath: m_Name
-      value: deer rig
+      value: DeerRagdoll
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
       propertyPath: m_TagString
-      value: CanPickUp
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 3757672996002952374, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
       propertyPath: m_TagString
@@ -1194,6 +1194,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1334699153}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1334699157}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1334699156}
     - targetCorrespondingSourceObject: {fileID: 3757672996002952374, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1166651036}
@@ -1574,7 +1580,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -1657,7 +1663,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -1740,7 +1746,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -1749,6 +1755,11 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &893935894 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9122834961284899791, guid: b2a99abcebce5ad4fb9723332a5bd985, type: 3}
+  m_PrefabInstance: {fileID: 9165905387005196342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &910802299 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6560026859394187845, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
@@ -1796,7 +1807,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -1878,7 +1889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animal: {fileID: 1181984567}
-  player: {fileID: 0}
+  player: {fileID: 893935894}
 --- !u!65 &1048512713
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2049,7 +2060,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -2464,7 +2475,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -2536,8 +2547,50 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 5.3024697, z: 3.7880175}
-  m_Center: {x: 0, y: 2.823009, z: 0.41250694}
+  m_Size: {x: 1, y: 5.263037, z: 3.7880175}
+  m_Center: {x: 0, y: 2.8427267, z: 0.41250694}
+--- !u!195 &1334699156
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334699150}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 2.32
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 5.29
+  m_BaseOffset: -0.2
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1334699157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334699150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68d920d1630416c4eb65fb978413ec5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agent: {fileID: 1334699156}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  player: {fileID: 893935894}
+  walkingRange: 15
+  health: 50
+  isAlive: 1
 --- !u!4 &1366886985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2040985156917402858, guid: 5d0057748a46f6640971740dba1821f2, type: 3}
@@ -2835,7 +2888,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3054,7 +3107,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3137,7 +3190,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3389,7 +3442,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3559,7 +3612,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3595,7 +3648,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0.5370062, y: 0.02720248, z: 0.013938251, w: 0.84302443}
   m_LocalPosition: {x: -0.0006, y: 0.00723, z: -0.00257}
-  m_LocalScale: {x: 0.6360782, y: 0.5948109, z: 0.42392692}
+  m_LocalScale: {x: 0.49664983, y: 0.46442834, z: 0.33100215}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1634631497}
@@ -3735,7 +3788,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -3873,7 +3926,7 @@ CharacterJoint:
     limit: 40
     bounciness: 0
     contactDistance: 0
-  m_EnableProjection: 0
+  m_EnableProjection: 1
   m_ProjectionDistance: 0.1
   m_ProjectionAngle: 180
   m_BreakForce: Infinity
@@ -4148,6 +4201,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5071673790105581813, guid: 6735aea3a8f06564994741c6788bf3d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6054356081611396646, guid: 6735aea3a8f06564994741c6788bf3d5, type: 3}
       propertyPath: m_TagString
       value: Animal
@@ -4178,7 +4235,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8376774328383786755, guid: 6735aea3a8f06564994741c6788bf3d5, type: 3}
       propertyPath: m_Radius
-      value: 14.27
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8376774328383786755, guid: 6735aea3a8f06564994741c6788bf3d5, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4240,6 +4301,14 @@ PrefabInstance:
     - target: {fileID: 3242136832474867428, guid: b2a99abcebce5ad4fb9723332a5bd985, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551623724802100529, guid: b2a99abcebce5ad4fb9723332a5bd985, type: 3}
+      propertyPath: sensitivityX
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4551623724802100529, guid: b2a99abcebce5ad4fb9723332a5bd985, type: 3}
+      propertyPath: sensitivityY
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 5315850310241955138, guid: b2a99abcebce5ad4fb9723332a5bd985, type: 3}
       propertyPath: m_Name

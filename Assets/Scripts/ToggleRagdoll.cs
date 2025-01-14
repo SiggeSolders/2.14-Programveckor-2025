@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.AI;
 
-public class toggleRagdoll : MonoBehaviour
+public class ToggleRagdoll : MonoBehaviour
 {
     protected Rigidbody rB;
     protected BoxCollider boxCollider;
+    protected NavMeshAgent navMesh;
 
     protected Collider[] childernCollider;
     protected Rigidbody[] childernRb;
@@ -13,6 +15,7 @@ public class toggleRagdoll : MonoBehaviour
     {
         rB = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+        navMesh = GetComponent<NavMeshAgent>();
 
         childernCollider = GetComponentsInChildren<Collider>();
         childernRb = GetComponentsInChildren<Rigidbody>();
@@ -25,9 +28,9 @@ public class toggleRagdoll : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        //if (Input.GetKeyDown(KeyCode.R))
         {
-            ragdollActive(true);
+            //ragdollActive(true);
         }
     }
     public void ragdollActive(bool active)
@@ -45,5 +48,6 @@ public class toggleRagdoll : MonoBehaviour
         rB.detectCollisions = !active;
         rB.isKinematic = active;
         boxCollider.enabled = !active;
+        navMesh.enabled = !active;
     }
 }

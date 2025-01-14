@@ -31,16 +31,16 @@ public class AnimalSpawner : MonoBehaviour
         switch (day)
         {
             case 1:
-                deerNumberSpawned = 2;
-                sheepNumberSpawned = 5;
-                break;
-            case 2:
-                deerNumberSpawned = 3;
+                deerNumberSpawned = 4;
                 sheepNumberSpawned = 10;
                 break;
+            case 2:
+                deerNumberSpawned = 6;
+                sheepNumberSpawned = 20;
+                break;
             case 3:
-                deerNumberSpawned = 5;
-                sheepNumberSpawned = 15;
+                deerNumberSpawned = 10;
+                sheepNumberSpawned = 30;
                 break;
             default:
                 deerNumberSpawned = 0;
@@ -49,15 +49,15 @@ public class AnimalSpawner : MonoBehaviour
         }
         for (int i = 0; i < deerNumberSpawned; i++)
         {
-            int spawnPointX = Random.Range(-10, 52);
-            int spawnPointZ = Random.Range(-50, 46);
+            int spawnPointX = Random.Range(2, 296);
+            int spawnPointZ = Random.Range(2, 296);
             Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
             Instantiate(deer, spawnPoint, Quaternion.identity);
         }
         for (int i = 0; i < sheepNumberSpawned; i++)
         {
-            int spawnPointX = Random.Range(-10, 52);
-            int spawnPointZ = Random.Range(-50, 46);
+            int spawnPointX = Random.Range(2, 296);
+            int spawnPointZ = Random.Range(2, 296);
             Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
             Instantiate(sheep, spawnPoint, Quaternion.identity);
         }
