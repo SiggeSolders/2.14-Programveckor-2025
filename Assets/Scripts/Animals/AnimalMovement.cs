@@ -176,14 +176,14 @@ public class AnimalMovement : MonoBehaviour
         if (health <= 0f)
         {
             Die();
-            print("dö");
         }
     }
     void Die()
     {
         isAlive = false;
+        walkingAudio.Stop();
+        runningAudio.Stop();
         toggleRagdoll.ragdollActive(true);
-        print("död");
     }
 
 }

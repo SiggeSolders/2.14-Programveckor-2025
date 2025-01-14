@@ -156,11 +156,11 @@ MonoBehaviour:
   player: {fileID: 7719050405733788365, guid: 21d97b6b784a7d3409e4bc1143100b65, type: 3}
   walkingAudio: {fileID: -6189792090325790704}
   runningAudio: {fileID: 2141384423027974303}
-  deerCollider: {fileID: 8886932988675496912}
-  sheepCollider: {fileID: 0}
   walkingRange: 15
   health: 10
   isAlive: 1
+  isDeer: 0
+  toggleRagdoll: {fileID: 0}
 --- !u!135 &8376774328383786755
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -231,9 +231,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 22.203465
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -328,9 +328,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 50
+  MaxDistance: 22.395912
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

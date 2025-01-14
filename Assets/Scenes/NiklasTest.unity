@@ -1664,6 +1664,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 285451264168977371, guid: e546467f80774464487f677e8cfea944, type: 3}
+      propertyPath: MaxDistance
+      value: 11.297237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4853228276529780750, guid: e546467f80774464487f677e8cfea944, type: 3}
+      propertyPath: MaxDistance
+      value: 11.434067
+      objectReference: {fileID: 0}
     - target: {fileID: 6032152825501449944, guid: e546467f80774464487f677e8cfea944, type: 3}
       propertyPath: m_Name
       value: Deer
