@@ -14,6 +14,8 @@ public class Shop : MonoBehaviour
     public GameObject item3;
     public GameObject item4;
     public GameObject item5;
+    public GameObject item6;
+    public GameObject item7;
     private GameObject objectToSell;
     
     
@@ -90,5 +92,15 @@ public class Shop : MonoBehaviour
     {
         item5.SetActive(true);
         goalScript.money -= 60;
+    }
+    public void Item6()
+    {
+        item6.SetActive(true);
+        goalScript.money -= 70;
+    }
+    public void Item7()
+    {
+        item7.SetActive(true);
+        goalScript.money -= 80;
     }
 }
