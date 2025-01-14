@@ -9,16 +9,13 @@ public class Shop : MonoBehaviour
 
     public int price1 = 50;
     public GameObject ShopUI;
-
+    public GameObject item1;
+    public GameObject item2;
+    public GameObject item3;
+    public GameObject item4;
+    public GameObject item5;
     private GameObject objectToSell;
-    public void buyButton1()
-    {
-        if (goalScript.money >= price1)
-        {
-            goalScript.money -= price1;
-        }
-
-    }
+    
     
     GoalsScript goalScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -69,5 +66,29 @@ public class Shop : MonoBehaviour
             Cursor.visible = false;
         }
     }
-    
+    public void Item1()
+    {
+        item1.SetActive(true);
+        goalScript.money -= 20;
+    }
+    public void Item2()
+    {
+        item2.SetActive(true);
+        goalScript.money -= 30;
+    }
+    public void Item3()
+    {
+        item3.SetActive(true);
+        goalScript.money -= 40;
+    }
+    public void Item4()
+    {
+        item4.SetActive(true);
+        goalScript.money -= 50;
+    }
+    public void Item5()
+    {
+        item5.SetActive(true);
+        goalScript.money -= 60;
+    }
 }
