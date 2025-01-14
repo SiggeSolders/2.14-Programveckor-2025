@@ -4,6 +4,9 @@ public class Shrine : MonoBehaviour
 {
     GoalsScript goalScript;
     SellANimalFFS animalSell;
+
+    private GameObject objectToSell;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,11 +21,21 @@ public class Shrine : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Animal" || other.gameObject.tag == "Deer")
+        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
         {
-            other.transform.parent.gameObject.SetActive(false);
-            Destroy(other.gameObject);
-            goalScript.souls++;
+            if (other.gameObject.tag == "Deer")
+            {
+                objectToSell = GameObject.Find("holdPos/Deer");
+                Destroy(objectToSell.gameObject);
+                goalScript.souls++;
+            }
+            if (other.gameObject.tag == "Sheep")
+            {
+                objectToSell = GameObject.Find("holdPos/Sheep");
+                Destroy(objectToSell.gameObject);
+                goalScript.souls++;
+            }
+
         }
     }
 }
