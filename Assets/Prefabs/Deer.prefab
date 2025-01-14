@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 285451264168977371}
   m_Layer: 0
   m_Name: Deer
-  m_TagString: Untagged
+  m_TagString: Deer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,6 +571,7 @@ MonoBehaviour:
   walkingRange: 15
   health: 50
   isAlive: 1
+  isDeer: 0
   toggleRagdoll: {fileID: 0}
 --- !u!135 &8337996049971332214
 SphereCollider:

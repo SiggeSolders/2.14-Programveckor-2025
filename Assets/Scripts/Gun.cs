@@ -62,9 +62,11 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
+            print(target + "träff");
             if (target != null)
             {
                 target.TakeDamage(damage);
+                print("ta skada");
             }
         }
     }
