@@ -6,6 +6,7 @@ public class PickUpSkript : MonoBehaviour
     public GameObject player;
     public Transform holdPos;
     public GameObject pickUpText;
+    public GameObject emptyHand;
 
     public float throwForce = 500f; //force at which the object is thrown at
     public float pickUpRange = 100f; //how far the player can pickup the object from
@@ -27,14 +28,17 @@ public class PickUpSkript : MonoBehaviour
     }
     void Update()
     {
-        RaycastHit obj;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out obj, pickUpRange))
+        if (emptyHand.gameObject.activeSelf == true)
         {
-            if (obj.transform.gameObject.tag == "CanPickUp")
+            RaycastHit obj;
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out obj, pickUpRange))
             {
-                if(obj.transform.gameObject.tag == "CanPickUp")
+                if (obj.transform.gameObject.tag == "CanPickUp")
                 {
-                    pickUpText.SetActive(true);
+                    if (obj.transform.gameObject.tag == "CanPickUp")
+                    {
+                        pickUpText.SetActive(true);
+                    }
                 }
             }
         }
@@ -43,41 +47,45 @@ public class PickUpSkript : MonoBehaviour
             pickUpText.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
+        if(emptyHand.gameObject.activeSelf == true)
         {
-            if (heldObj == null) //if currently not holding anything
+            if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
             {
-                //perform raycast to check if player is looking at object within pickuprange
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
+                if (heldObj == null) //if currently not holding anything
                 {
-                    //make sure pickup tag is attached
-                    if (hit.transform.gameObject.tag == "CanPickUp")
+                    //perform raycast to check if player is looking at object within pickuprange
+                    RaycastHit hit;
+                    if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
                     {
-                        //pass in object hit into the PickUpObject function
-                        PickUpObject(hit.transform.gameObject);
+                        //make sure pickup tag is attached
+                        if (hit.transform.gameObject.tag == "CanPickUp")
+                        {
+                            //pass in object hit into the PickUpObject function
+                            PickUpObject(hit.transform.gameObject);
+                        }
+                    }
+                }
+                else
+                {
+                    if (canDrop == true)
+                    {
+                        //StopClipping(); //prevents object from clipping through walls
+                        DropObject();
                     }
                 }
             }
-            else
+            if (heldObj != null) //if player is holding object
             {
-                if (canDrop == true)
+                MoveObject(); //keep object position at holdPos
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
                 {
-                    StopClipping(); //prevents object from clipping through walls
-                    DropObject();
+                    //StopClipping();
+                    ThrowObject();
                 }
-            }
-        }
-        if (heldObj != null) //if player is holding object
-        {
-            MoveObject(); //keep object position at holdPos
-            if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
-            {
-                StopClipping();
-                ThrowObject();
-            }
 
+            }
         }
+
     }
     void PickUpObject(GameObject pickUpObj)
     {
@@ -138,18 +146,18 @@ public class PickUpSkript : MonoBehaviour
         heldObjRb.AddForce(transform.forward * throwForce);
         heldObj = null;
     }
-    void StopClipping() //function only called when dropping/throwing
-    {
-        var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
+    //void StopClipping() //function only called when dropping/throwing
+    //{
+        //var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
         //have to use RaycastAll as object blocks raycast in center screen
         //RaycastAll returns array of all colliders hit within the cliprange
-        RaycastHit[] hits;
-        hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);
+        //RaycastHit[] hits;
+        //hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);
         //if the array length is greater than 1, meaning it has hit more than just the object we are carrying
-        if (hits.Length > 1)
-        {
+        //if (hits.Length > 1)
+        //{
             //change object position to camera position 
-            heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
-        }
-    }
+            //heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
+        //}
+    //}
 }
