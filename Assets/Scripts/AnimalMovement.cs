@@ -12,7 +12,6 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] AudioSource walkingAudio;
     [SerializeField] AudioSource runningAudio;
 
-
     //movement
     Vector3 destinationPoint;
     bool isWalking;
@@ -22,15 +21,18 @@ public class AnimalMovement : MonoBehaviour
     bool isRunning;
     public float health = 50f;
     public bool isAlive = true;
-    bool isDeer;
+    public bool isDeer;
 
-
+    //ragdoll
+    [HideInInspector]
+    public ToggleRagdoll toggleRagdoll;
     
 
     // Start is called before the first frame update
     void Start()
     {
         CheckForSpecificChild();
+        toggleRagdoll = GetComponent<ToggleRagdoll>();
     }
 
     // Update is called once per frame
@@ -105,11 +107,11 @@ public class AnimalMovement : MonoBehaviour
 
         if (gameObject.tag == "Deer")
         {
-            agent.speed = 14;
+            agent.speed = 7;
         }
         if (gameObject.tag == "Sheep")
         {
-            agent.speed = 7;
+            agent.speed = 5;
         }
         //Springer åt motsatt håll från spelaren
         runDirection = (player.transform.position - transform.position).normalized;
@@ -143,7 +145,6 @@ public class AnimalMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            print("AAAAAAAAA");
             isRunning = true;
         }
     }
@@ -152,8 +153,15 @@ public class AnimalMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            print("nvm, we good");
             isRunning = false;
+            if (isDeer)
+            {
+                agent.speed = 4;
+            }
+            if (isDeer == false)
+            {
+                agent.speed = 2;
+            }
         }
     }
 
@@ -168,6 +176,7 @@ public class AnimalMovement : MonoBehaviour
     void Die()
     {
         isAlive = false;
+        toggleRagdoll.ragdollActive(true);
     }
 
 }

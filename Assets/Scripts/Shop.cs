@@ -9,14 +9,15 @@ public class Shop : MonoBehaviour
 
     public int price1 = 50;
     public GameObject ShopUI;
-    public void buyButton1()
-    {
-        if (goalScript.money >= price1)
-        {
-            goalScript.money -= price1;
-        }
-
-    }
+    public GameObject item1;
+    public GameObject item2;
+    public GameObject item3;
+    public GameObject item4;
+    public GameObject item5;
+    public GameObject item6;
+    public GameObject item7;
+    private GameObject objectToSell;
+    
     
     GoalsScript goalScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -36,14 +37,16 @@ public class Shop : MonoBehaviour
     {
         if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
         {
-            other.transform.parent.gameObject.SetActive(false);
-            Destroy(other.gameObject);
             if (other.gameObject.tag == "Deer")
             {
+                objectToSell = GameObject.Find("holdPos/Deer");
+                Destroy(objectToSell.gameObject);
                 goalScript.money += 50;
             }
             if (other.gameObject.tag == "Sheep")
             {
+                objectToSell = GameObject.Find("holdPos/Sheep");
+                Destroy(objectToSell.gameObject);
                 goalScript.money += 20;
             }
 
@@ -65,5 +68,39 @@ public class Shop : MonoBehaviour
             Cursor.visible = false;
         }
     }
-    
+    public void Item1()
+    {
+        item1.SetActive(true);
+        goalScript.money -= 20;
+    }
+    public void Item2()
+    {
+        item2.SetActive(true);
+        goalScript.money -= 30;
+    }
+    public void Item3()
+    {
+        item3.SetActive(true);
+        goalScript.money -= 40;
+    }
+    public void Item4()
+    {
+        item4.SetActive(true);
+        goalScript.money -= 50;
+    }
+    public void Item5()
+    {
+        item5.SetActive(true);
+        goalScript.money -= 60;
+    }
+    public void Item6()
+    {
+        item6.SetActive(true);
+        goalScript.money -= 70;
+    }
+    public void Item7()
+    {
+        item7.SetActive(true);
+        goalScript.money -= 80;
+    }
 }
