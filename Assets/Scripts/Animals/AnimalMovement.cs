@@ -185,5 +185,4 @@ public class AnimalMovement : MonoBehaviour
         runningAudio.Stop();
         toggleRagdoll.ragdollActive(true);
     }
-
 }

@@ -5,18 +5,16 @@ public class AnimalSpawner : MonoBehaviour
     [SerializeField] GameObject deer;
     [SerializeField] GameObject sheep;
     [SerializeField] LayerMask groundLayer; // LayerMask to detect the ground
+    [SerializeField] GoalsScript goalsScript;
     int deerNumberSpawned;
     int sheepNumberSpawned;
-    GoalsScript goalsScript;
     int lastSpawnedDay = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        goalsScript = FindAnyObjectByType<GoalsScript>();
         print(goalsScript);
     }
-
     // Update is called once per frame
     void Update()
     {
