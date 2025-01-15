@@ -15,8 +15,20 @@ public class Shop : MonoBehaviour
     public GameObject item4;
     public GameObject item5;
     public GameObject item6;
-    
+    public GameObject inventoryitem1;
+    public GameObject inventoryitem2;
+    public GameObject inventoryitem3;
+    public GameObject inventoryitem4;
+    public GameObject inventoryitem5;
+    public GameObject inventoryitem6;
+    public PlayerCamera kamera;
     private GameObject objectToSell;
+    public GameObject weapon1;
+    public GameObject weapon2;
+    public GameObject weapon3;
+    public GameObject weapon4;
+    public GameObject weapon5;
+    public GameObject weapon6;
 
     public PlayerMovement playermovement;
     GoalsScript goalScript;
@@ -57,6 +69,7 @@ public class Shop : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             playermovement.enabled = false;
+            kamera.enabled = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -72,37 +85,50 @@ public class Shop : MonoBehaviour
     public void Item1()
     {
         item1.SetActive(true);
+        inventoryitem1.SetActive(true);
         goalScript.money -= 20;
+        weapon1.SetActive(true);
     }
     public void Item2()
     {
         item2.SetActive(true);
+        inventoryitem2.SetActive(true);
         goalScript.money -= 30;
+        weapon2.SetActive(true);
     }
     public void Item3()
     {
         item3.SetActive(true);
+        inventoryitem3.SetActive(true);
         goalScript.money -= 40;
+        weapon3.SetActive(true);
     }
     public void Item4()
     {
         item4.SetActive(true);
+        inventoryitem4.SetActive(true);
         goalScript.money -= 50;
+        weapon4.SetActive(true);
     }
     public void Item5()
     {
         item5.SetActive(true);
+        inventoryitem5.SetActive(true);
         goalScript.money -= 60;
+        weapon5.SetActive(true);
     }
     public void Item6()
     {
         item6.SetActive(true);
+        inventoryitem6.SetActive(true);
         goalScript.money -= 70;
+        weapon6.SetActive(true);
     }
     
     public void closeshop()
     {
         ShopUI.SetActive(false);
         playermovement.enabled = true;
+        kamera.enabled = true;
     }
 }
