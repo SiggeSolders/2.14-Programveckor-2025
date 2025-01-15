@@ -40,7 +40,7 @@ public class ButtonScript : MonoBehaviour
         else
         {
             load();
-            Debug.Log("haskey");
+            
         }
         //sensetivitySliderText.text = "sensitivity (" + sensetivity.value + ")";
         //sensetivityNumber = (int)sensetivity.value;

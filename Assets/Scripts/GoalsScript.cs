@@ -41,6 +41,12 @@ public class GoalsScript : MonoBehaviour
                 moneyGoal = 200;
                 soulGoal = 666;
                 break;
+
+
+            case (4):
+                moneyGoal = 0;
+                soulGoal = 0;
+                break;
         }
         
         moneyText.text = ("Money: " + money + ("/") + moneyGoal);
