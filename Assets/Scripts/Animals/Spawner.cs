@@ -5,13 +5,14 @@ public class AnimalSpawner : MonoBehaviour
 {
     [SerializeField] GameObject deer;
     [SerializeField] GameObject sheep;
-    [SerializeField] LayerMask groundLayer;
+    [SerializeField] LayerMask groundLayer; // LayerMask to detect the ground
     [SerializeField] GoalsScript goalsScript;
-    [SerializeField] float navMeshSampleDistance = 2f; // Max distans för att lägga dit den
+    [SerializeField] float navMeshSampleDistance = 2f; // Max distance to sample a valid NavMesh point
     int deerNumberSpawned;
     int sheepNumberSpawned;
     int lastSpawnedDay = 0;
 
+    // Start is called before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         print(goalsScript);
@@ -20,7 +21,7 @@ public class AnimalSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // kollar om dagen ändrats
+        // Check if the day has changed
         if (goalsScript.day != lastSpawnedDay)
         {
             lastSpawnedDay = goalsScript.day;
@@ -58,22 +59,21 @@ public class AnimalSpawner : MonoBehaviour
     {
         for (int i = 0; i < numberToSpawn; i++)
         {
-            // Skapar random spawnpunkt
+            // Generate random X and Z within bounds
             float spawnPointX = Random.Range(2, 296);
             float spawnPointZ = Random.Range(2, 296);
-            Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // startar högt upp innan den kollar marken
+            Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Start high above the terrain
 
-            // Hittar marken
+            // Find the ground level using raycast
             if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
             {
-                Vector3 groundPoint = hit.point;
+                Vector3 groundPoint = hit.point; // Adjust the point to the ground level
 
-                // Kollar om marken är på navmeshen och hamnar där om det är det
+                // Check if the ground point is on the NavMesh
                 if (NavMesh.SamplePosition(groundPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
                 {
-                    Instantiate(animalPrefab, navHit.position, Quaternion.identity); 
+                    Instantiate(animalPrefab, navHit.position, Quaternion.identity); // Spawn at the valid NavMesh point
                 }
-
             }
         }
     }

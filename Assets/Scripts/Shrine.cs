@@ -3,7 +3,6 @@ using UnityEngine;
 public class Shrine : MonoBehaviour
 {
     GoalsScript goalScript;
-    SellANimalFFS animalSell;
 
     private GameObject objectToSell;
 
@@ -11,7 +10,6 @@ public class Shrine : MonoBehaviour
     void Start()
     {
         goalScript = FindObjectOfType<GoalsScript>();
-        animalSell = FindObjectOfType<SellANimalFFS>();
     }
 
     // Update is called once per frame
@@ -19,6 +17,7 @@ public class Shrine : MonoBehaviour
     {
         
     }
+    //Kollar vad för djur det är och offrar det
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
