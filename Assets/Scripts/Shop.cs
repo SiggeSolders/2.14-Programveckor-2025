@@ -15,10 +15,10 @@ public class Shop : MonoBehaviour
     public GameObject item4;
     public GameObject item5;
     public GameObject item6;
-    public GameObject item7;
+    
     private GameObject objectToSell;
-    
-    
+
+    public PlayerMovement playermovement;
     GoalsScript goalScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,6 +56,7 @@ public class Shop : MonoBehaviour
             ShopUI.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            playermovement.enabled = false;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -98,9 +99,10 @@ public class Shop : MonoBehaviour
         item6.SetActive(true);
         goalScript.money -= 70;
     }
-    public void Item7()
+    
+    public void closeshop()
     {
-        item7.SetActive(true);
-        goalScript.money -= 80;
+        ShopUI.SetActive(false);
+        playermovement.enabled = true;
     }
 }

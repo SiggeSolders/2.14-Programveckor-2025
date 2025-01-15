@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
 {
 
     public GameObject playerinventory;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,6 +22,7 @@ public class Inventory : MonoBehaviour
             playerinventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+           
         }
         
     }
@@ -29,5 +31,5 @@ public class Inventory : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-
+    
 }
