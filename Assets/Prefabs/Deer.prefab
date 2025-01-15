@@ -448,13 +448,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6355875417240297491}
   - component: {fileID: 502012819770026183}
-  - component: {fileID: 1118547584679261825}
   - component: {fileID: 2553316838627009304}
   - component: {fileID: 6723663821029927945}
   - component: {fileID: 8337996049971332214}
   - component: {fileID: 4488457655822767505}
   - component: {fileID: 4853228276529780750}
   - component: {fileID: 285451264168977371}
+  - component: {fileID: 4165760235875112202}
   m_Layer: 0
   m_Name: Deer
   m_TagString: Deer
@@ -500,33 +500,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.49274564, y: 2.045511, z: 1.4816856}
   m_Center: {x: -0.04507625, y: 0.5227555, z: 0.16925526}
---- !u!54 &1118547584679261825
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6032152825501449944}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!195 &2553316838627009304
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -800,6 +773,33 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!54 &4165760235875112202
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6032152825501449944}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &6076597224513021477
 GameObject:
   m_ObjectHideFlags: 0
