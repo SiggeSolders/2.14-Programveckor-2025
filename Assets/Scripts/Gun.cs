@@ -11,15 +11,16 @@ public class Gun : MonoBehaviour
     private int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
+    private Ammo ammo_;
     [SerializeField] AudioSource gunShot;
-
-
+    [SerializeField] GameObject gunAmmo;
 
     // Update is called once per frame
     void Start()
     {
         if(currentAmmo == -1)
         currentAmmo = maxAmmo;
+        ammo_ = gunAmmo.GetComponent<Ammo>();
     }
     void OnEnable()
     {
@@ -35,12 +36,19 @@ public class Gun : MonoBehaviour
             StartCoroutine(Reload());
             return;
         }
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Shoot();
-
         }
 
+        if (gameObject.transform.parent.gameObject.activeSelf == true)
+        {
+            gunAmmo.SetActive(true);
+        }
+        else 
+        {
+            gunAmmo.SetActive(false);
+        }
 
     }
     IEnumerator Reload()
@@ -50,11 +58,13 @@ public class Gun : MonoBehaviour
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
         isReloading = false;
+        ammo_.ShowAmmo(currentAmmo);
     }
     void Shoot ()
     {
         MuzzleFlash.Play();
         gunShot.Play();
+        ammo_.ShowAmmo(currentAmmo);
 
         currentAmmo--;
 
@@ -69,6 +79,8 @@ public class Gun : MonoBehaviour
                 print("ta skada");
             }
         }
+
     }
+
     
 }
