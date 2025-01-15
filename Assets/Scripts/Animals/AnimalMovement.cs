@@ -71,13 +71,12 @@ public class AnimalMovement : MonoBehaviour
         if (isDeer)
         {
             agent.speed = 4;
-            animation.SetTrigger("Walk");
         }
         if(isDeer == false)
         {
             agent.speed = 2;
         }
-
+        animation.SetTrigger("Walk");
         if (!isWalking)
         {
             FindDestination();
@@ -118,12 +117,12 @@ public class AnimalMovement : MonoBehaviour
         if (gameObject.tag == "Deer")
         {
             agent.speed = 7;
-            animation.SetTrigger("Run");
         }
         if (gameObject.tag == "Sheep")
         {
             agent.speed = 5;
         }
+        animation.SetTrigger("Run");
         //Springer åt motsatt håll från spelaren
         runDirection = (player.transform.position - transform.position).normalized;
         //Gör att den springer i en 35-graders vinkel
