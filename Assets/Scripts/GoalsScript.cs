@@ -29,12 +29,12 @@ public class GoalsScript : MonoBehaviour
         {
             case (1):
                 moneyGoal = 50;
-                soulGoal = 3;
+                soulGoal = 1;
                 break;
 
             case (2):
                 moneyGoal = 100;
-                soulGoal = 5;
+                soulGoal = 3;
                 break;
 
             case (3):
