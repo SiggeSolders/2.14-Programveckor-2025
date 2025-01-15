@@ -35,11 +35,12 @@ public class ButtonScript : MonoBehaviour
         {
             PlayerPrefs.SetFloat("sensitivity", 400);
             load();
-
+            
         }
         else
         {
             load();
+            Debug.Log("haskey");
         }
         //sensetivitySliderText.text = "sensitivity (" + sensetivity.value + ")";
         //sensetivityNumber = (int)sensetivity.value;
@@ -77,7 +78,7 @@ public class ButtonScript : MonoBehaviour
     public void changeSensitivity()
     {
         Debug.Log("changeSensitivity(");
-        sensetivitySliderText.text = "sensitivity (" + sensetivity.value + ")";
+        sensetivitySliderText.text = "sensitivity" + sensetivity.value + ")";
         sensetivityNumber = (int)sensetivity.value;
         save();
     }
