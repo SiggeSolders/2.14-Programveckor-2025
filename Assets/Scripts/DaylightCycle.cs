@@ -37,7 +37,13 @@ public class day_night : MonoBehaviour
                 gameOverScreen.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                
             }
+            if (goalsScript.day == 3)
+            {
+
+            }
+
         }
     }
 }
