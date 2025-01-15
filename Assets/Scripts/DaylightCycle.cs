@@ -29,10 +29,10 @@ public class day_night : MonoBehaviour
         
         totalRotation += rotationThisFrame;
 
-        if (totalRotation >= 360f)
+        if (totalRotation >= 360)
         {
             goalsScript.day++;
-            totalRotation = 0f;
+            totalRotation = 0;
 
             if((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 3)
             {
