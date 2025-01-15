@@ -312,7 +312,8 @@ MonoBehaviour:
   sheep: {fileID: 6693309167096628209, guid: 626e0c42a4de6974c8ddd668193f72a4, type: 3}
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
+  goalsScript: {fileID: 2122173338}
 --- !u!4 &121908000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6873562400405175236, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
@@ -2264,7 +2265,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 017a16d041cc49d46ba21eb96df44183, type: 3}
     - target: {fileID: 1106766274735578842, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100.0736
+      value: 100.26669
       objectReference: {fileID: 0}
     - target: {fileID: 1262792588646254896, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2839,7 +2840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6032152825501449944, guid: e546467f80774464487f677e8cfea944, type: 3}
       propertyPath: m_Name
-      value: Deer
+      value: Deer(Clone)
       objectReference: {fileID: 0}
     - target: {fileID: 6355875417240297491, guid: e546467f80774464487f677e8cfea944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4043,6 +4044,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7529343160102140857, guid: 0fc27be5ba77ee94e9868e856f47cc57, type: 3}
   m_PrefabInstance: {fileID: 414981254}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2122173338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2569333156141177557, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
+  m_PrefabInstance: {fileID: 9174208531270982415}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f71e513ede6c07459a7ce9609498926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &727855591252571367
 PrefabInstance:
   m_ObjectHideFlags: 0
