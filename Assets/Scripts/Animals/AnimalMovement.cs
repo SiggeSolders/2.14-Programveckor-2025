@@ -31,8 +31,14 @@ public class AnimalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+    }
+
+    private void Awake()
+    {
         CheckForSpecificChild();
         toggleRagdoll = GetComponent<ToggleRagdoll>();
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -128,15 +134,14 @@ public class AnimalMovement : MonoBehaviour
 
     void CheckForSpecificChild()
     {
-        Transform child = transform.Find("deerCollider");
-
-        if (child != null)
+        if (transform.gameObject.tag == "Deer")
         {
             isDeer = true;
         }
         else
         {
             isDeer = false;
+
         }
     }
 
@@ -176,6 +181,8 @@ public class AnimalMovement : MonoBehaviour
     void Die()
     {
         isAlive = false;
+        walkingAudio.Stop();
+        runningAudio.Stop();
         toggleRagdoll.ragdollActive(true);
     }
 

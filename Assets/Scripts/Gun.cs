@@ -7,11 +7,13 @@ public class Gun : MonoBehaviour
     public float range = 100f;
     public Camera fpsCam;
     public ParticleSystem MuzzleFlash;
-    public int maxAmmo = 10;
+    public int maxAmmo = 3;
     private int currentAmmo;
     public float reloadTime = 1f;
     private bool isReloading = false;
     [SerializeField] AudioSource gunShot;
+
+
 
     // Update is called once per frame
     void Start()
@@ -39,6 +41,7 @@ public class Gun : MonoBehaviour
 
         }
 
+
     }
     IEnumerator Reload()
     {
@@ -59,10 +62,13 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
+            print(target + "träff");
             if (target != null)
             {
                 target.TakeDamage(damage);
+                print("ta skada");
             }
         }
     }
+    
 }

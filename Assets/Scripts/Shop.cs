@@ -25,7 +25,7 @@ public class Shop : MonoBehaviour
     {
         ShopUI.SetActive(false);
         goalScript = FindObjectOfType<GoalsScript>();
-        cost1Text.text = (price1 + " $");
+        //cost1Text.text = price1 + " $";
     }
     
     // Update is called once per frame
@@ -39,13 +39,13 @@ public class Shop : MonoBehaviour
         {
             if (other.gameObject.tag == "Deer")
             {
-                objectToSell = GameObject.Find("holdPos/Deer");
+                objectToSell = GameObject.Find("holdPos/Deer(Clone)");
                 Destroy(objectToSell.gameObject);
                 goalScript.money += 50;
             }
             if (other.gameObject.tag == "Sheep")
             {
-                objectToSell = GameObject.Find("holdPos/Sheep");
+                objectToSell = GameObject.Find("holdPos/Sheep(Clone)");
                 Destroy(objectToSell.gameObject);
                 goalScript.money += 20;
             }

@@ -35,10 +35,7 @@ public class PickUpSkript : MonoBehaviour
             {
                 if (obj.transform.gameObject.tag == "CanPickUp")
                 {
-                    if (obj.transform.gameObject.tag == "CanPickUp")
-                    {
-                        pickUpText.SetActive(true);
-                    }
+                    pickUpText.SetActive(true);
                 }
             }
         }
@@ -49,7 +46,7 @@ public class PickUpSkript : MonoBehaviour
 
         if(emptyHand.gameObject.activeSelf == true)
         {
-            if (Input.GetKeyDown(KeyCode.E)) //change E to whichever key you want to press to pick up
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (heldObj == null) //if currently not holding anything
                 {
@@ -85,7 +82,13 @@ public class PickUpSkript : MonoBehaviour
 
             }
         }
-
+        if (emptyHand.gameObject.activeSelf == false)
+        {
+            if(heldObj != null)
+            {
+                DropObject();
+            }
+        }
     }
     void PickUpObject(GameObject pickUpObj)
     {
