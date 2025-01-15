@@ -1,24 +1,26 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AnimalSpawner : MonoBehaviour
 {
     [SerializeField] GameObject deer;
     [SerializeField] GameObject sheep;
-    [SerializeField] LayerMask groundLayer; // LayerMask to detect the ground
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] GoalsScript goalsScript;
+    [SerializeField] float navMeshSampleDistance = 2f; // Max distans för att lägga dit den
     int deerNumberSpawned;
     int sheepNumberSpawned;
     int lastSpawnedDay = 0;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         print(goalsScript);
     }
+
     // Update is called once per frame
     void Update()
     {
-        // Check if the day has changed
+        // kollar om dagen ändrats
         if (goalsScript.day != lastSpawnedDay)
         {
             lastSpawnedDay = goalsScript.day;
@@ -56,20 +58,22 @@ public class AnimalSpawner : MonoBehaviour
     {
         for (int i = 0; i < numberToSpawn; i++)
         {
-            // Generate random X and Z within bounds
+            // Skapar random spawnpunkt
             float spawnPointX = Random.Range(2, 296);
             float spawnPointZ = Random.Range(2, 296);
-            Vector3 spawnPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Start high above the terrain
+            Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // startar högt upp innan den kollar marken
 
-            // Find the Y position using raycast
-            if (Physics.Raycast(spawnPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
+            // Hittar marken
+            if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
             {
-                spawnPoint = hit.point; // Adjust spawn point to ground level
-                Instantiate(animalPrefab, spawnPoint, Quaternion.identity);
-            }
-            else
-            {
-                Debug.LogWarning($"Failed to find ground at X:{spawnPointX}, Z:{spawnPointZ}");
+                Vector3 groundPoint = hit.point;
+
+                // Kollar om marken är på navmeshen och hamnar där om det är det
+                if (NavMesh.SamplePosition(groundPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
+                {
+                    Instantiate(animalPrefab, navHit.position, Quaternion.identity); 
+                }
+
             }
         }
     }
