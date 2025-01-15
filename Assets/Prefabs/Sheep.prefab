@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 3957155865350427651}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 5196772591283230137}
   m_Layer: 0
   m_Name: Sheep
-  m_TagString: Sheep
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -635,7 +635,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 287.91678, y: 2.624069, z: 117.44}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 153616768740486917}
@@ -672,6 +672,7 @@ MonoBehaviour:
   player: {fileID: 0}
   walkingAudio: {fileID: 2672788092979712531}
   runningAudio: {fileID: 8415365443587791613}
+  animation: {fileID: 5211298695345470722}
   walkingRange: 15
   health: 50
   isAlive: 1
@@ -696,8 +697,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.9204407, y: 2.4626105, z: 1.4096756}
-  m_Center: {x: 0, y: 1.3126148, z: 0.017925262}
+  m_Size: {x: 3.9204407, y: 2.3535058, z: 1.4096756}
+  m_Center: {x: 0, y: 1.3671671, z: 0.017925262}
 --- !u!195 &5743137912897061061
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -717,7 +718,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2.59
-  m_BaseOffset: 0.2
+  m_BaseOffset: -0.1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!135 &8408553467198209602
@@ -798,7 +799,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -895,7 +896,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -958,7 +959,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1124,6 +1125,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SheepRagdoll
       objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
+      propertyPath: m_TagString
+      value: CanPickUp
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1167,9 +1172,15 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6152307769667632401}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5211298695345470722}
     - targetCorrespondingSourceObject: {fileID: 7036213049465896255, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6108207416404410189}
+    - targetCorrespondingSourceObject: {fileID: 7036213049465896255, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1112205783738660118}
     - targetCorrespondingSourceObject: {fileID: 6905609870639353253, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3939226628102506540}
@@ -1326,6 +1337,33 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &678373453197325759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
+  m_PrefabInstance: {fileID: 408553087610685678}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5211298695345470722
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678373453197325759}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a80283958877a3a4f839227a5a6c76f3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!4 &1556106723976302521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8056062269502994601, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}
@@ -2193,6 +2231,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!136 &1112205783738660118
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209944846932211153}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.001
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &8077528046018944041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8480942376449889479, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}

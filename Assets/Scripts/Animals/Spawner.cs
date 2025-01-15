@@ -32,7 +32,7 @@ public class AnimalSpawner : MonoBehaviour
         {
             case 1:
                 deerNumberSpawned = 10;
-                sheepNumberSpawned = 1;
+                sheepNumberSpawned = 10;
                 break;
             case 2:
                 deerNumberSpawned = 20;
