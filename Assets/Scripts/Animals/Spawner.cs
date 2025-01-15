@@ -14,6 +14,7 @@ public class AnimalSpawner : MonoBehaviour
     void Start()
     {
         goalsScript = FindAnyObjectByType<GoalsScript>();
+        print(goalsScript);
     }
 
     // Update is called once per frame

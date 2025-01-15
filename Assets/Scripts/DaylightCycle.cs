@@ -7,12 +7,14 @@ public class day_night : MonoBehaviour
     float totalRotation = 0f;
     GoalsScript goalsScript;
     [SerializeField] GameObject gameOverScreen;
+    [SerializeField] GameObject ChoseScreen;
 
 
     private void Start()
     {
         goalsScript = FindAnyObjectByType<GoalsScript>();
         gameOverScreen.SetActive(false);
+        ChoseScreen.SetActive(false);
     }
     // Update is called once per frame
     void Update()
@@ -39,9 +41,18 @@ public class day_night : MonoBehaviour
                 Cursor.visible = true;
                 
             }
-            if (goalsScript.day == 3)
+            if ((goalsScript.money < goalsScript.moneyGoal) && goalsScript.day == 3)
             {
+                gameOverScreen.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
 
+            }
+            if ((goalsScript.souls < goalsScript.soulGoal) && goalsScript.day == 3)
+            {
+                ChoseScreen.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
         }
