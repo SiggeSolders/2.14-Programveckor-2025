@@ -165,6 +165,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deer: {fileID: 0}
   sheep: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &159692173
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +653,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1754006692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Return
         m_Mode: 1
@@ -1131,8 +1134,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7082b335f726d9247b76e31e6cf1c81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 0}
-  ChoseScreen: {fileID: 0}
 --- !u!224 &697468415 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4665214393538222973, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
@@ -1240,7 +1241,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1754006692}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
         m_MethodName: Restart
         m_Mode: 1
@@ -1614,8 +1615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7082b335f726d9247b76e31e6cf1c81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 0}
-  ChoseScreen: {fileID: 0}
 --- !u!114 &1038419830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2129,7 +2128,7 @@ GameObject:
   - component: {fileID: 1754006691}
   - component: {fileID: 1754006694}
   - component: {fileID: 1754006693}
-  - component: {fileID: 1754006692}
+  - component: {fileID: 1754006695}
   m_Layer: 5
   m_Name: chose
   m_TagString: Untagged
@@ -2159,20 +2158,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1754006692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1754006690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7082b335f726d9247b76e31e6cf1c81a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameOverScreen: {fileID: 0}
-  ChoseScreen: {fileID: 0}
 --- !u!114 &1754006693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2211,6 +2196,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754006690}
   m_CullTransparentMesh: 1
+--- !u!114 &1754006695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754006690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b13cb07b2d11a942a8215db8795b891, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverScreen: {fileID: 579941746}
+  ChoseScreen: {fileID: 1754006690}
 --- !u!1 &1772752648
 GameObject:
   m_ObjectHideFlags: 0
@@ -3223,6 +3222,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Directional Light
       objectReference: {fileID: 0}
+    - target: {fileID: 8411860665840114614, guid: 64ae8e1c515b87844ae3f36d87478453, type: 3}
+      propertyPath: ChoseScreen
+      value: 
+      objectReference: {fileID: 1754006690}
     - target: {fileID: 8411860665840114614, guid: 64ae8e1c515b87844ae3f36d87478453, type: 3}
       propertyPath: gameOverScreen
       value: 
