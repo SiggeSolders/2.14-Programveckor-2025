@@ -35,7 +35,10 @@ public class PickUpSkript : MonoBehaviour
             {
                 if (obj.transform.gameObject.tag == "CanPickUp")
                 {
-                    pickUpText.SetActive(true);
+                    if(heldObj == null)
+                    {
+                        pickUpText.SetActive(true);
+                    }
                 }
             }
         }
@@ -106,7 +109,7 @@ public class PickUpSkript : MonoBehaviour
                 child.gameObject.layer = LayerNumber;
                 if (child.GetComponent<Collider>() != null)
                 {
-
+                    Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
                 }
                 //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
             }
@@ -123,7 +126,10 @@ public class PickUpSkript : MonoBehaviour
         foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
         {
             child.gameObject.layer = 0;
-            //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            if (child.GetComponent<Collider>() != null)
+            {
+                Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
+            }
         }
         topObject.transform.parent = null; //unparent object
         heldObj = null; //undefine game object
