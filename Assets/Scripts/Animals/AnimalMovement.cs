@@ -65,9 +65,10 @@ public class AnimalMovement : MonoBehaviour
         }
     }
     
-    // går långsamt till slumpmässiga positioner innom den satta rangen
+    // går långsamt till slumpmässiga positioner innom den satta rangen.
     void NaturalState()
     {
+        //gör att hjorten är snabbare än fåret
         if (isDeer)
         {
             agent.speed = 4;
@@ -89,6 +90,7 @@ public class AnimalMovement : MonoBehaviour
         {
             isWalking = false;
         }
+        //spela ljudet om den går
         if (!walkingAudio.isPlaying)
         {
             walkingAudio.Play();
@@ -136,6 +138,7 @@ public class AnimalMovement : MonoBehaviour
         }
     }
 
+    //kollar om det är en deer
     void CheckForSpecificChild()
     {
         if (transform.gameObject.tag == "Deer")
@@ -174,6 +177,7 @@ public class AnimalMovement : MonoBehaviour
         }
     }
 
+    //minskar hp och dör vid noll hp
     public void TakeDamage(float amount)
     {
         health -= amount;
@@ -182,6 +186,8 @@ public class AnimalMovement : MonoBehaviour
             Die();
         }
     }
+
+    //slutar spela ljud och blir en ragdoll
     void Die()
     {
         isAlive = false;
