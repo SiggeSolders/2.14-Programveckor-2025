@@ -29,16 +29,17 @@ public class day_night : MonoBehaviour
         
         totalRotation += rotationThisFrame;
 
-        if (totalRotation >= 360f)
+        if (totalRotation >= 360)
         {
             goalsScript.day++;
-            totalRotation = 0f;
+            totalRotation = 0;
 
-            if((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 3)
+            if((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 4)
             {
                 gameOverScreen.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                
                 
             }
             if ((goalsScript.money < goalsScript.moneyGoal) && goalsScript.day == 3)
@@ -46,9 +47,9 @@ public class day_night : MonoBehaviour
                 gameOverScreen.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
-
+            
             }
-            if ((goalsScript.souls < goalsScript.soulGoal) && goalsScript.day == 3)
+            if ((goalsScript.money >= goalsScript.moneyGoal) && goalsScript.day == 4)
             {
                 ChoseScreen.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;

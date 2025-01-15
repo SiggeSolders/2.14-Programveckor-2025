@@ -9,25 +9,31 @@ public class ToggleRagdoll : MonoBehaviour
 
     protected Collider[] childernCollider;
     protected Rigidbody[] childernRb;
+    protected SphereCollider sphereCollider;
 
 
     private void Awake()
     {
         rB = GetComponent<Rigidbody>();
         boxCollider = GetComponent<BoxCollider>();
+        sphereCollider = GetComponent<SphereCollider>();
         navMesh = GetComponent<NavMeshAgent>();
 
         childernCollider = GetComponentsInChildren<Collider>();
         childernRb = GetComponentsInChildren<Rigidbody>();
+        boxCollider.enabled = true;
+        sphereCollider.enabled = true;
     }
     void Start()
     {
         ragdollActive(false);
+        rB.isKinematic = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        sphereCollider.enabled = true;
         //if (Input.GetKeyDown(KeyCode.R))
         {
             //ragdollActive(true);

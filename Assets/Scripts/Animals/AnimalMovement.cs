@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Animations;
 
 public class AnimalMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class AnimalMovement : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] AudioSource walkingAudio;
     [SerializeField] AudioSource runningAudio;
+    [SerializeField] Animator animation;
 
     //movement
     Vector3 destinationPoint;
@@ -52,6 +54,7 @@ public class AnimalMovement : MonoBehaviour
         if(isAlive == false)
         {
             agent.enabled = false;
+            animation.enabled = false;
         }
         else
         {
@@ -68,6 +71,7 @@ public class AnimalMovement : MonoBehaviour
         if (isDeer)
         {
             agent.speed = 4;
+            animation.SetTrigger("Walk");
         }
         if(isDeer == false)
         {
@@ -114,6 +118,7 @@ public class AnimalMovement : MonoBehaviour
         if (gameObject.tag == "Deer")
         {
             agent.speed = 7;
+            animation.SetTrigger("Run");
         }
         if (gameObject.tag == "Sheep")
         {
@@ -185,5 +190,4 @@ public class AnimalMovement : MonoBehaviour
         runningAudio.Stop();
         toggleRagdoll.ragdollActive(true);
     }
-
 }
