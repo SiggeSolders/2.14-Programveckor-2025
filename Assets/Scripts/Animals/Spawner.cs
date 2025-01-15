@@ -4,6 +4,7 @@ public class AnimalSpawner : MonoBehaviour
 {
     [SerializeField] GameObject deer;
     [SerializeField] GameObject sheep;
+    [SerializeField] LayerMask groundLayer; // LayerMask to detect the ground
     int deerNumberSpawned;
     int sheepNumberSpawned;
     GoalsScript goalsScript;
@@ -18,10 +19,10 @@ public class AnimalSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // kollar om dagen ändrats
+        // Check if the day has changed
         if (goalsScript.day != lastSpawnedDay)
         {
-            lastSpawnedDay = goalsScript.day; 
+            lastSpawnedDay = goalsScript.day;
             SpawnAnimalsForDay(goalsScript.day);
         }
     }
@@ -31,12 +32,12 @@ public class AnimalSpawner : MonoBehaviour
         switch (day)
         {
             case 1:
-                deerNumberSpawned = 4;
-                sheepNumberSpawned = 10;
+                deerNumberSpawned = 10;
+                sheepNumberSpawned = 1;
                 break;
             case 2:
-                deerNumberSpawned = 6;
-                sheepNumberSpawned = 20;
+                deerNumberSpawned = 20;
+                sheepNumberSpawned = 6;
                 break;
             case 3:
                 deerNumberSpawned = 10;
@@ -47,19 +48,30 @@ public class AnimalSpawner : MonoBehaviour
                 sheepNumberSpawned = 0;
                 break;
         }
-        for (int i = 0; i < deerNumberSpawned; i++)
+
+        SpawnAnimals(deer, deerNumberSpawned);
+        SpawnAnimals(sheep, sheepNumberSpawned);
+    }
+
+    void SpawnAnimals(GameObject animalPrefab, int numberToSpawn)
+    {
+        for (int i = 0; i < numberToSpawn; i++)
         {
-            int spawnPointX = Random.Range(2, 296);
-            int spawnPointZ = Random.Range(2, 296);
-            Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
-            Instantiate(deer, spawnPoint, Quaternion.identity);
-        }
-        for (int i = 0; i < sheepNumberSpawned; i++)
-        {
-            int spawnPointX = Random.Range(2, 296);
-            int spawnPointZ = Random.Range(2, 296);
-            Vector3 spawnPoint = new Vector3(spawnPointX, 4, spawnPointZ);
-            Instantiate(sheep, spawnPoint, Quaternion.identity);
+            // Generate random X and Z within bounds
+            float spawnPointX = Random.Range(2, 296);
+            float spawnPointZ = Random.Range(2, 296);
+            Vector3 spawnPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Start high above the terrain
+
+            // Find the Y position using raycast
+            if (Physics.Raycast(spawnPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
+            {
+                spawnPoint = hit.point; // Adjust spawn point to ground level
+                Instantiate(animalPrefab, spawnPoint, Quaternion.identity);
+            }
+            else
+            {
+                Debug.LogWarning($"Failed to find ground at X:{spawnPointX}, Z:{spawnPointZ}");
+            }
         }
     }
 }
