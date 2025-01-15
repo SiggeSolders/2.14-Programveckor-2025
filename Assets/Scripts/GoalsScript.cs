@@ -28,17 +28,17 @@ public class GoalsScript : MonoBehaviour
         switch (day)
         {
             case (1):
-                moneyGoal = 100;
+                moneyGoal = 50;
                 soulGoal = 3;
                 break;
 
             case (2):
-                moneyGoal = 200;
-                soulGoal = 6;
+                moneyGoal = 100;
+                soulGoal = 5;
                 break;
 
             case (3):
-                moneyGoal = 250;
+                moneyGoal = 200;
                 soulGoal = 666;
                 break;
         }
