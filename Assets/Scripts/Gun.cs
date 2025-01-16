@@ -12,6 +12,8 @@ public class Gun : MonoBehaviour
     public float reloadTime = 1f;
     private bool isReloading = false;
     [SerializeField] AudioSource gunShot;
+    [SerializeField] GameObject Blodd;
+
     // Update is called once per frame
     void Start()
     {
@@ -57,7 +59,9 @@ public class Gun : MonoBehaviour
             AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
             if (target != null)
             {
-                target.TakeDamage(damage);
+                Vector3 pointOfImpact = hit.point;
+                Instantiate(Blodd, pointOfImpact, Quaternion.identity);
+                target.TakeDamage(damage, pointOfImpact);
             }
         }
 

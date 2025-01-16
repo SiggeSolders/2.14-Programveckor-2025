@@ -178,7 +178,7 @@ public class AnimalMovement : MonoBehaviour
     }
 
     //minskar hp och dör vid noll hp
-    public void TakeDamage(float amount)
+    public void TakeDamage(float amount, Vector3 pointOfImpact)
     {
         health -= amount;
         if (health <= 0f)
