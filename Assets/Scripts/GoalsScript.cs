@@ -17,7 +17,7 @@ public class GoalsScript : MonoBehaviour
     void Start()
     {
         day = 1;
-        money = 0;
+        money = 10000;
         souls = 0;
         winScreen.SetActive(false);
     }
