@@ -23,8 +23,6 @@ public class Ammo : MonoBehaviour
     {
         // Kontrollera endast om parentens tillstånd har ändrats
         bool currentState = Gun.transform.parent.gameObject.activeSelf;
-        print(currentState);
-        print(previousState);
         if(currentState == true)
         {
             canvasGroup.alpha = 1;

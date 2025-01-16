@@ -9,7 +9,6 @@ public class Aim : MonoBehaviour
     void Start()
     {
         gunPos = GetComponentInParent<Transform>();
-        Debug.Log(gunPos.position);
     }
 
     // Update is called once per frame

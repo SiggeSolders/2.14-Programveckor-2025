@@ -39,7 +39,19 @@ public class PickUpSkript : MonoBehaviour
                     {
                         pickUpText.SetActive(true);
                     }
+                    else
+                    {
+                        pickUpText.SetActive(false);
+                    }
                 }
+                else
+                {
+                    pickUpText.SetActive(false);
+                }
+            }
+            else
+            {
+                pickUpText.SetActive(false);
             }
         }
         else
@@ -47,7 +59,8 @@ public class PickUpSkript : MonoBehaviour
             pickUpText.SetActive(false);
         }
 
-        if(emptyHand.gameObject.activeSelf == true)
+
+        if (emptyHand.gameObject.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {

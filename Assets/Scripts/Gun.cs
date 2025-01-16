@@ -40,7 +40,6 @@ public class Gun : MonoBehaviour
     IEnumerator Reload()
     {
         isReloading = true;
-        Debug.Log("Reloading");
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;
         isReloading = false;
@@ -56,11 +55,9 @@ public class Gun : MonoBehaviour
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
             AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
-            print(target + "träff");
             if (target != null)
             {
                 target.TakeDamage(damage);
-                print("ta skada");
             }
         }
 

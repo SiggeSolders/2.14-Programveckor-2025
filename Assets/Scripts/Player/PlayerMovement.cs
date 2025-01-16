@@ -13,9 +13,6 @@ public class PlayerMovement : MonoBehaviour
 
     public float groundDrag;
 
-
-
-
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -29,7 +26,11 @@ public class PlayerMovement : MonoBehaviour
     public float playerHeight;
     public LayerMask whatIsGround;
     bool Grounded;
-    
+
+    [Header("Sound")]
+    [SerializeField] AudioSource walkingAudio;
+    [SerializeField] AudioSource runningAudio;
+
     public bool runCooldown = false;
 
     public Transform orientetion;
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
     {
         walking,
         sprinting,
+        idle,
         air
     }
     void Start()
@@ -93,10 +95,13 @@ public class PlayerMovement : MonoBehaviour
             state = MovementState.sprinting;
             moveSpeed = sprintspeed;
 
-        }else if (Grounded)
+        }else if (Grounded && rb.linearVelocity != Vector3.zero)
         {
             state = MovementState.walking;
             moveSpeed = walkspeed;
+        }else if (Grounded)
+        {
+            state = MovementState.idle;
         }
         else
         {
@@ -142,12 +147,29 @@ public class PlayerMovement : MonoBehaviour
         if (Grounded)
         {
             rb.AddForce(moveDirection * moveSpeed * 10, ForceMode.Force);
+
+            if (state == MovementState.walking)
+            {
+                walkingAudio.mute = false;
+                runningAudio.mute = true;
+            }
+            else if (state == MovementState.sprinting)
+            {
+                walkingAudio.mute = true;
+                runningAudio.mute = false;
+            }else if (state == MovementState.idle)
+            {
+                walkingAudio.mute = true;
+                runningAudio.mute = true;
+            }
         }
 
         //In Air
         else if (!Grounded)
         {
             rb.AddForce(moveDirection * moveSpeed * 10 * airMultiplier, ForceMode.Force);
+            walkingAudio.mute = true;
+            runningAudio.mute = true;
         }
     }
 
