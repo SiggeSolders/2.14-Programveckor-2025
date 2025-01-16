@@ -29,12 +29,16 @@ public class Shop : MonoBehaviour
     public GameObject weapon4;
     public GameObject weapon5;
     public GameObject weapon6;
+    public GameObject inventory;
+    [SerializeField] GameObject ogWepon;
 
     public PlayerMovement playermovement;
     GoalsScript goalScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
+        
         ShopUI.SetActive(false);
         goalScript = FindObjectOfType<GoalsScript>();
         //cost1Text.text = price1 + " $";
@@ -88,6 +92,8 @@ public class Shop : MonoBehaviour
         inventoryitem1.SetActive(true);
         goalScript.money -= 20;
         weapon1.SetActive(true);
+        weapon1.transform.localPosition = Vector3.zero;
+        weapon1.transform.rotation = ogWepon.transform.rotation;
     }
     public void Item2()
     {
@@ -95,6 +101,10 @@ public class Shop : MonoBehaviour
         inventoryitem2.SetActive(true);
         goalScript.money -= 30;
         weapon2.SetActive(true);
+        weapon2.transform.parent = inventory.transform;
+        weapon2.transform.localPosition = Vector3.zero;
+        weapon2.transform.rotation = ogWepon.transform.rotation;
+
     }
     public void Item3()
     {
@@ -102,13 +112,19 @@ public class Shop : MonoBehaviour
         inventoryitem3.SetActive(true);
         goalScript.money -= 40;
         weapon3.SetActive(true);
+        weapon3.transform.parent = inventory.transform;
+        weapon3.transform.localPosition = Vector3.zero;
+        weapon3.transform.rotation = ogWepon.transform.rotation;
     }
     public void Item4()
     {
         item4.SetActive(true);
-        inventoryitem4.SetActive(true);
+        inventoryitem4.SetActive(true );
         goalScript.money -= 50;
         weapon4.SetActive(true);
+        weapon4.transform.parent = inventory.transform;
+        weapon4.transform.localPosition = Vector3.zero;
+        weapon4.transform.rotation = ogWepon.transform.rotation;
     }
     public void Item5()
     {
@@ -116,6 +132,9 @@ public class Shop : MonoBehaviour
         inventoryitem5.SetActive(true);
         goalScript.money -= 60;
         weapon5.SetActive(true);
+        weapon5.transform.parent = inventory.transform;
+        weapon5.transform.localPosition = Vector3.zero;
+        weapon5.transform.rotation = ogWepon.transform.rotation;
     }
     public void Item6()
     {
@@ -123,6 +142,9 @@ public class Shop : MonoBehaviour
         inventoryitem6.SetActive(true);
         goalScript.money -= 70;
         weapon6.SetActive(true);
+        weapon6.transform.parent = inventory.transform;
+        weapon6.transform.localPosition = Vector3.zero;
+        weapon6.transform.rotation = ogWepon.transform.rotation;
     }
     
     public void closeshop()
