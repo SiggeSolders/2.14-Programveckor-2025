@@ -9,6 +9,7 @@ TagManager:
   - Sheep
   - Deer
   - Animal
+  - Wolf
   layers:
   - Default
   - TransparentFX

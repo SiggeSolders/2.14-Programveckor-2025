@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 5196772591283230137}
   m_Layer: 0
   m_Name: Sheep
-  m_TagString: Untagged
+  m_TagString: Sheep
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -633,14 +633,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7278410286289537016}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 287.91678, y: 2.624069, z: 117.44}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 153616768740486917}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!114 &759140859809197497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,13 +734,13 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 14.46
+  m_Radius: 37.78
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!82 &2672788092979712531
 AudioSource:
@@ -2250,10 +2250,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.001
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.00652472
+  m_Height: 0.019136025
+  m_Direction: 2
+  m_Center: {x: 0.0023677838, y: -0.00027813908, z: 0.00601335}
 --- !u!4 &8077528046018944041 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8480942376449889479, guid: 9bf59dc04430cd04d911280aa115c930, type: 3}

@@ -5,14 +5,16 @@ public class AnimalSpawner : MonoBehaviour
 {
     [SerializeField] GameObject deer;
     [SerializeField] GameObject sheep;
-    [SerializeField] LayerMask groundLayer; // LayerMask to detect the ground
+    [SerializeField] GameObject wolf;
+    [SerializeField] LayerMask groundLayer; 
     [SerializeField] GoalsScript goalsScript;
-    [SerializeField] float navMeshSampleDistance = 2f; // Max distance to sample a valid NavMesh point
+    [SerializeField] float navMeshSampleDistance = 2f; // Max distans
     int deerNumberSpawned;
     int sheepNumberSpawned;
+    int wolfNumberSpawned;
     int lastSpawnedDay = 0;
 
-    // Start is called before the first execution of Update after the MonoBehaviour is created
+    // Start 
     void Start()
     {
         print(goalsScript);
@@ -21,7 +23,7 @@ public class AnimalSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Check if the day has changed
+        // kollar om dagen ändrats
         if (goalsScript.day != lastSpawnedDay)
         {
             lastSpawnedDay = goalsScript.day;
@@ -29,6 +31,7 @@ public class AnimalSpawner : MonoBehaviour
         }
     }
 
+    //sätter antal djur per dag
     void SpawnAnimalsForDay(int day)
     {
         switch (day)
@@ -36,14 +39,17 @@ public class AnimalSpawner : MonoBehaviour
             case 1:
                 deerNumberSpawned = 10;
                 sheepNumberSpawned = 10;
+                wolfNumberSpawned = 4;
                 break;
             case 2:
                 deerNumberSpawned = 20;
                 sheepNumberSpawned = 6;
+                wolfNumberSpawned = 4;
                 break;
             case 3:
                 deerNumberSpawned = 10;
                 sheepNumberSpawned = 30;
+                wolfNumberSpawned = 4;
                 break;
             default:
                 deerNumberSpawned = 0;
@@ -53,26 +59,26 @@ public class AnimalSpawner : MonoBehaviour
 
         SpawnAnimals(deer, deerNumberSpawned);
         SpawnAnimals(sheep, sheepNumberSpawned);
+        SpawnAnimals(wolf, wolfNumberSpawned);
     }
 
     void SpawnAnimals(GameObject animalPrefab, int numberToSpawn)
     {
         for (int i = 0; i < numberToSpawn; i++)
         {
-            // Generate random X and Z within bounds
+            //Genererar slumpmässig plats innom ramarna
             float spawnPointX = Random.Range(2, 296);
             float spawnPointZ = Random.Range(2, 296);
-            Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Start high above the terrain
+            Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Startar högt och kollar neråt
 
-            // Find the ground level using raycast
             if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
             {
-                Vector3 groundPoint = hit.point; // Adjust the point to the ground level
+                Vector3 groundPoint = hit.point;
 
-                // Check if the ground point is on the NavMesh
+                // Kollar om den över en navmesh surface
                 if (NavMesh.SamplePosition(groundPoint, out NavMeshHit navHit, navMeshSampleDistance, NavMesh.AllAreas))
                 {
-                    Instantiate(animalPrefab, navHit.position, Quaternion.identity); // Spawn at the valid NavMesh point
+                    Instantiate(animalPrefab, navHit.position, Quaternion.identity); // spawnar på marken
                 }
             }
         }
