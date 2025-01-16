@@ -61,6 +61,12 @@ public class Shop : MonoBehaviour
                 Destroy(objectToSell.gameObject);
                 goalScript.money += 20;
             }
+            if (other.gameObject.tag == "Wolf")
+            {
+                objectToSell = GameObject.Find("holdPos/Wolf(Clone)");
+                Destroy(objectToSell.gameObject);
+                goalScript.money += 100;
+            }
 
         }
         if (other.gameObject.tag == "Player")

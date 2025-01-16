@@ -31,6 +31,7 @@ public class day_night : MonoBehaviour
         //om den roterat ett helt varv ökar dagen med ett och totala rotationen sätts till noll
         if (totalRotation >= 360)
         {
+            print("Day");
             goalsScript.day++;
             totalRotation = 0;
 

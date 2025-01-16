@@ -24,13 +24,19 @@ public class Shrine : MonoBehaviour
         {
             if (other.gameObject.tag == "Deer")
             {
-                objectToSell = GameObject.Find("holdPos/Deer");
+                objectToSell = GameObject.Find("holdPos/Deer(Clone)");
                 Destroy(objectToSell.gameObject);
                 goalScript.souls++;
             }
             if (other.gameObject.tag == "Sheep")
             {
-                objectToSell = GameObject.Find("holdPos/Sheep");
+                objectToSell = GameObject.Find("holdPos/Sheep(Clone)");
+                Destroy(objectToSell.gameObject);
+                goalScript.souls++;
+            }
+            if (other.gameObject.tag == "Wolf")
+            {
+                objectToSell = GameObject.Find("holdPos/Wolf(Clone)");
                 Destroy(objectToSell.gameObject);
                 goalScript.souls++;
             }
