@@ -53,7 +53,7 @@ public class Gun : MonoBehaviour
         gunShot.Play();
 
         currentAmmo--;
-
+        GameObject.Find("PlayerCamera").GetComponent<PlayerCamera>().shake = 1f;
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {

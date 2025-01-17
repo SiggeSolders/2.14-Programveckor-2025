@@ -11,6 +11,8 @@ public class PlayerCamera : MonoBehaviour
     float Xrotation;
     float Yrotation;
 
+    public float shake = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +35,10 @@ public class PlayerCamera : MonoBehaviour
         Xrotation -= mouseY;
         Xrotation = Mathf.Clamp(Xrotation, -90, 90);
 
-        transform.rotation = Quaternion.Euler(Xrotation, Yrotation, 0);
+        transform.rotation = Quaternion.Euler(Xrotation+Random.Range(-shake,shake), Yrotation + Random.Range(-shake, shake), 0);
         oriantation.rotation = Quaternion.Euler(0, Yrotation, 0);
 
+        shake -= 10f * Time.deltaTime;
+        shake = Mathf.Clamp(shake, 0, 10);
     }
 }
