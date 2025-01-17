@@ -57,7 +57,6 @@ public class Gun : MonoBehaviour
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
         {
-<<<<<<< HEAD
             AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
             if (target != null)
             {
@@ -65,16 +64,7 @@ public class Gun : MonoBehaviour
                 Instantiate(Blodd, pointOfImpact, Quaternion.identity);
                 target.TakeDamage(damage, pointOfImpact);
             }
-=======
-                AnimalMovement target = hit.transform.GetComponent<AnimalMovement>();
                 print(target + "träff");
-                if (target != null)
-                {
-                    target.TakeDamage(damage);
-                    print("ta skada");
-
-                }
->>>>>>> 043e8dd470db1f40d23d807617f14f36bd6d70b9
         }
 
     }

@@ -4,28 +4,23 @@ using UnityEngine.Video;
 
 public class GameOver : MonoBehaviour
 {
-    [SerializeField] VideoPlayer vP;
-    [SerializeField] GameObject restartButton;
-    [SerializeField] GameObject returnButton;
+    [SerializeField] GameObject volume;
+    [SerializeField] GameObject mM;
+    [SerializeField] GameObject text1;
+    [SerializeField] GameObject text2;
+    [SerializeField] GameObject ammo;
 
-    private void Start()
+    private void Awake()
     {
-        if(gameObject.tag == "Win")
-        {
-            restartButton.SetActive(false);
-            returnButton.SetActive(false);
-        }
+        volume.SetActive(false);
+        text1.SetActive(false);
+        text2.SetActive(false);
+        mM.SetActive(false);
+        ammo.SetActive(false);
     }
     private void Update()
     {
-        if(gameObject.tag == "Win")
-        {
-            if(vP.isPlaying == false)
-            {
-                restartButton.SetActive(true);
-                returnButton.SetActive(true);
-            }
-        }
+
     }
     public void Restart()
     {

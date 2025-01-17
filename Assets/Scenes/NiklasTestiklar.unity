@@ -165,6 +165,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deer: {fileID: 6032152825501449944, guid: e546467f80774464487f677e8cfea944, type: 3}
   sheep: {fileID: 6693309167096628209, guid: 626e0c42a4de6974c8ddd668193f72a4, type: 3}
+  wolf: {fileID: 0}
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  goalsScript: {fileID: 0}
+  navMeshSampleDistance: 2
 --- !u!1 &159692173
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +1004,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7082b335f726d9247b76e31e6cf1c81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vP: {fileID: 0}
+  restartButton: {fileID: 0}
+  returnButton: {fileID: 0}
 --- !u!1 &663101346
 GameObject:
   m_ObjectHideFlags: 0
@@ -1122,7 +1131,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 5b55359f1b413214b8eb2ea74133337d, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 89c366c4a4ce3c24d90b8e12147cb5de, type: 2}
   m_BuildHeightMesh: 0
 --- !u!224 &697468415 stripped
 RectTransform:
@@ -1135,11 +1144,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1446341078}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!222 &716704463
+CanvasRenderer:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_CullTransparentMesh: 1
 --- !u!1 &865028871 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7618969216990199823, guid: 21d97b6b784a7d3409e4bc1143100b65, type: 3}
@@ -1331,6 +1348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7082b335f726d9247b76e31e6cf1c81a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vP: {fileID: 0}
+  restartButton: {fileID: 0}
+  returnButton: {fileID: 0}
 --- !u!114 &1038419830
 MonoBehaviour:
   m_ObjectHideFlags: 0

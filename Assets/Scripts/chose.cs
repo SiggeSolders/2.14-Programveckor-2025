@@ -8,6 +8,7 @@ public class chose : MonoBehaviour
     [SerializeField] GameObject mM;
     [SerializeField] GameObject goal1;
     [SerializeField] GameObject goal2;
+    [SerializeField] GameObject ammo;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class chose : MonoBehaviour
         goal1.SetActive(false);
         goal2.SetActive(false);
         mM.SetActive(false);
+        ammo.SetActive(false);
         Destroy(gameObject);
 
     }
