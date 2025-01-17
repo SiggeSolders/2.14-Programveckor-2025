@@ -17,7 +17,7 @@ public class GoalsScript : MonoBehaviour
     void Start()
     {
         day = 1;
-        money = 10000;
+        money = 0;
         souls = 0;
         winScreen.SetActive(false);
     }
@@ -34,7 +34,7 @@ public class GoalsScript : MonoBehaviour
 
             case (2):
                 moneyGoal = 100;
-                soulGoal = 3;
+                soulGoal = 2;
                 break;
 
             case (3):
