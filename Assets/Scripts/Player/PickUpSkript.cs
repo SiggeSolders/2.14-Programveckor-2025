@@ -75,6 +75,10 @@ public class PickUpSkript : MonoBehaviour
                         {
                             //pass in object hit into the PickUpObject function
                             PickUpObject(hit.transform.gameObject);
+                            if(hit.transform.gameObject.layer == 10)
+                            {
+
+                            }
                         }
                     }
                 }
