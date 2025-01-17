@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
@@ -9,6 +10,8 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject text1;
     [SerializeField] GameObject text2;
     [SerializeField] GameObject ammo;
+    [SerializeField] GameObject restartButton;
+    [SerializeField] GameObject returnButton;
 
     private void Awake()
     {
@@ -17,10 +20,25 @@ public class GameOver : MonoBehaviour
         text2.SetActive(false);
         mM.SetActive(false);
         ammo.SetActive(false);
+        restartButton.SetActive(false);
+        returnButton.SetActive(false);
+
+        StartCoroutine(ShowButtonsAfterDelay());
     }
     private void Update()
     {
 
+    }
+
+
+    IEnumerator ShowButtonsAfterDelay()
+    {
+        // Wait for 22 seconds
+        yield return new WaitForSeconds(22f);
+
+        // Activate the buttons
+        restartButton.SetActive(true);
+        returnButton.SetActive(true);
     }
     public void Restart()
     {
@@ -29,8 +47,9 @@ public class GameOver : MonoBehaviour
 
     public void Return()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
-    
+
 }
+

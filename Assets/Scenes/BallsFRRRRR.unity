@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0.42371085, g: 0.6226415, b: 0.2149875, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.003
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.3660378, g: 0.27728894, b: 0.23688859, a: 1}
@@ -5474,6 +5474,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8405571072329947502, guid: 0fc27be5ba77ee94e9868e856f47cc57, type: 3}
   m_PrefabInstance: {fileID: 414981254}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &292983141 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 726489486370693971, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
+  m_PrefabInstance: {fileID: 1244473686610056980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &313891497 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3493695462082327530, guid: 01421cc1d70affc45980feb918e2da1b, type: 3}
@@ -6806,7 +6811,9 @@ MonoBehaviour:
   mM: {fileID: 676199699}
   text1: {fileID: 1668588020}
   text2: {fileID: 628656679}
-  ammo: {fileID: 0}
+  ammo: {fileID: 292983141}
+  restartButton: {fileID: 159692173}
+  returnButton: {fileID: 184875284}
 --- !u!328 &579941751
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -6815,7 +6822,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 579941746}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 606bdc5bac3358543a0c4c6d4506ceb3, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 2e5f216e28c3cc343843171079c2961d, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 929916012}
@@ -7567,7 +7574,9 @@ MonoBehaviour:
   mM: {fileID: 676199699}
   text1: {fileID: 1668588020}
   text2: {fileID: 628656679}
-  ammo: {fileID: 0}
+  ammo: {fileID: 292983141}
+  restartButton: {fileID: 991031625}
+  returnButton: {fileID: 1836329320}
 --- !u!114 &1038419830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8065,7 +8074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1106766274735578842, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 100
+      value: 100.00014
       objectReference: {fileID: 0}
     - target: {fileID: 3533582036527517912, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchorMax.x
@@ -9547,6 +9556,10 @@ PrefabInstance:
     - target: {fileID: 9228056141706524, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 29758221039380605, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 1008005645553708060, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalPosition.y
