@@ -3,63 +3,85 @@ using UnityEngine;
 public class day_night : MonoBehaviour
 {
     Vector3 rotation = Vector3.zero;
-    float day_cycle = 1.2f;
+    float dayCycleSpeed = 20.2f; // Rotation speed
     float totalRotation = 0f;
+
     GoalsScript goalsScript;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] GameObject ChoseScreen;
-
+    [SerializeField] GameObject chooseScreen;
+    [SerializeField] Material daySkybox;
+    [SerializeField] Material nightSkybox;
 
     private void Start()
     {
         goalsScript = FindAnyObjectByType<GoalsScript>();
         gameOverScreen.SetActive(false);
-        ChoseScreen.SetActive(false);
+        chooseScreen.SetActive(false);
+
+        RenderSettings.skybox = daySkybox; 
     }
-    // Update is called once per frame
+
     void Update()
     {
-        //skapar en variabel som håller koll på rotationen denna frame
-        float rotationThisFrame = day_cycle * Time.deltaTime;
 
-        // Roterar
+        float rotationThisFrame = dayCycleSpeed * Time.deltaTime;
+
+
         rotation.x = rotationThisFrame;
         transform.Rotate(rotation, Space.World);
 
-        //ökar totalen med rotationen denna frame
         totalRotation += rotationThisFrame;
-        //om den roterat ett helt varv ökar dagen med ett och totala rotationen sätts till noll
-        if (totalRotation >= 360)
+
+        if (totalRotation >= 360f)
         {
-            print("Day");
+            totalRotation = 0f;
             goalsScript.day++;
-            totalRotation = 0;
+            HandleEndOfDay();
+        }
 
-            //Om man inte har nog med själar eller pengar förlorar man och hamnar på förlora screen
-            if((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 4)
-            {
-                gameOverScreen.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                
-                
-            }
-            //specialfall på dag 3 då man bara behöver pengar
-            if ((goalsScript.money < goalsScript.moneyGoal) && goalsScript.day == 3)
-            {
-                gameOverScreen.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            
-            }
-            //om man klarar dag 3 kommer man till det sista valet 
-            if ((goalsScript.money >= goalsScript.moneyGoal) && goalsScript.day == 4)
-            {
-                ChoseScreen.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-            }
 
+        UpdateSkyboxAndLighting();
+    }
+
+    void UpdateSkyboxAndLighting()
+    {
+
+        float normalizedTimeOfDay = totalRotation / 360f;
+
+
+
+        if(normalizedTimeOfDay < 0.5f)
+        {
+            RenderSettings.skybox = daySkybox;
+        }
+
+        else
+        {
+            RenderSettings.skybox = nightSkybox;
+        }
+
+        DynamicGI.UpdateEnvironment();
+    }
+
+    void HandleEndOfDay()
+    {
+        if ((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 4)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (goalsScript.money < goalsScript.moneyGoal && goalsScript.day == 3)
+        {
+            gameOverScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+        else if (goalsScript.money >= goalsScript.moneyGoal && goalsScript.day == 4)
+        {
+            chooseScreen.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
