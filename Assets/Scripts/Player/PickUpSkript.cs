@@ -16,15 +16,9 @@ public class PickUpSkript : MonoBehaviour
     private Rigidbody heldObjRb; //rigidbody of object we pick up
     private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
     private int LayerNumber; //layer index
-
-    //Reference to script which includes mouse movement of player (looking around)
-    //we want to disable the player looking around when rotating the object
-    //example below 
-    //MouseLookScript mouseLookScript;
     void Start()
     {
-        LayerNumber = LayerMask.NameToLayer("HoldLayer"); //if your holdLayer is named differently make sure to change this ""
-        //mouseLookScript = player.GetComponent<MouseLookScript>();
+        LayerNumber = LayerMask.NameToLayer("HoldLayer");
     }
     void Update()
     {
