@@ -14,8 +14,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 0
-  m_FogColor: {r: 0.42371085, g: 0.6226415, b: 0.2149875, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.32844454, g: 0.3660378, b: 0.28937706, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.003
   m_LinearFogStart: 0
@@ -7080,7 +7080,7 @@ Terrain:
   m_TreeBillboardDistance: 50
   m_TreeCrossFadeLength: 5
   m_TreeMaximumFullLODCount: 50
-  m_DetailObjectDistance: 80
+  m_DetailObjectDistance: 40
   m_DetailObjectDensity: 1
   m_HeightmapPixelError: 5
   m_SplatMapDistance: 1000
@@ -7128,7 +7128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697227166}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
   m_Name: 
@@ -7844,7 +7844,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 017a16d041cc49d46ba21eb96df44183, type: 3}
     - target: {fileID: 1106766274735578842, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 112.81
+      value: 99.99999
       objectReference: {fileID: 0}
     - target: {fileID: 2141320621107751776, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_IsActive
@@ -9299,6 +9299,10 @@ PrefabInstance:
       propertyPath: Gun
       value: 
       objectReference: {fileID: 529053466}
+    - target: {fileID: 894597713514410567, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1008005645553708060, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -9365,7 +9369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677510029948473268, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 5.25
       objectReference: {fileID: 0}
     - target: {fileID: 2677510029948473268, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9459,6 +9463,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 697468415}
     m_Modifications:
+    - target: {fileID: 135340525075182021, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
+      propertyPath: m_RequiresDepthTextureOption
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 135340525075182021, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
+      propertyPath: m_RequiresOpaqueTextureOption
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1400832116583397717, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5834
@@ -9473,15 +9485,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1400832116583397717, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1406
+      value: -677
       objectReference: {fileID: 0}
     - target: {fileID: 1400832116583397717, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -143
+      value: -741
       objectReference: {fileID: 0}
     - target: {fileID: 1400832116583397717, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 829
+      value: 1687
       objectReference: {fileID: 0}
     - target: {fileID: 5104179030898705486, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}
       propertyPath: m_Name
@@ -9769,6 +9781,10 @@ PrefabInstance:
       propertyPath: winScreen
       value: 
       objectReference: {fileID: 794265588}
+    - target: {fileID: 3754771735023549534, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4132694792490957700, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
       propertyPath: m_text
       value: Wwwwwwww
