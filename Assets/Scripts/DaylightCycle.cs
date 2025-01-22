@@ -3,7 +3,7 @@ using UnityEngine;
 public class day_night : MonoBehaviour
 {
     Vector3 rotation = Vector3.zero;
-    float dayCycleSpeed = 20.2f; // Rotation speed
+    float dayCycleSpeed = 1.2f; // Rotation speed
     float totalRotation = 0f;
 
     GoalsScript goalsScript;
