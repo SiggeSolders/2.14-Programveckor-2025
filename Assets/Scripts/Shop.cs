@@ -88,6 +88,9 @@ public class Shop : MonoBehaviour
             ShopUI.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
+            ShopUI.SetActive(false);
+            playermovement.enabled = true;
+            kamera.enabled = true;
         }
     }
     public void Item1()
