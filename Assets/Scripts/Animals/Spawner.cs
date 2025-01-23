@@ -37,18 +37,18 @@ public class AnimalSpawner : MonoBehaviour
         switch (day)
         {
             case 1:
-                deerNumberSpawned = 10;
-                sheepNumberSpawned = 10;
-                wolfNumberSpawned = 4;
+                deerNumberSpawned = 30;
+                sheepNumberSpawned = 30;
+                wolfNumberSpawned = 18;
                 break;
             case 2:
-                deerNumberSpawned = 20;
-                sheepNumberSpawned = 6;
-                wolfNumberSpawned = 4;
+                deerNumberSpawned = 60;
+                sheepNumberSpawned = 30;
+                wolfNumberSpawned = 12;
                 break;
             case 3:
-                deerNumberSpawned = 10;
-                sheepNumberSpawned = 30;
+                deerNumberSpawned = 30;
+                sheepNumberSpawned = 40;
                 wolfNumberSpawned = 4;
                 break;
             default:
@@ -67,8 +67,8 @@ public class AnimalSpawner : MonoBehaviour
         for (int i = 0; i < numberToSpawn; i++)
         {
             //Genererar slumpmässig plats innom ramarna
-            float spawnPointX = Random.Range(2, 296);
-            float spawnPointZ = Random.Range(2, 296);
+            float spawnPointX = Random.Range(70, 1451);
+            float spawnPointZ = Random.Range(121, 964);
             Vector3 randomPoint = new Vector3(spawnPointX, 100f, spawnPointZ); // Startar högt och kollar neråt
 
             if (Physics.Raycast(randomPoint, Vector3.down, out RaycastHit hit, Mathf.Infinity, groundLayer))
