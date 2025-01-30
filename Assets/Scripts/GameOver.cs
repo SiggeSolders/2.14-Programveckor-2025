@@ -15,14 +15,6 @@ public class GameOver : MonoBehaviour
 
     private void Awake()
     {
-        volume.SetActive(false);
-        text1.SetActive(false);
-        text2.SetActive(false);
-        mM.SetActive(false);
-        ammo.SetActive(false);
-        restartButton.SetActive(false);
-        returnButton.SetActive(false);
-
         StartCoroutine(ShowButtonsAfterDelay());
     }
     private void Update()
@@ -33,10 +25,10 @@ public class GameOver : MonoBehaviour
 
     IEnumerator ShowButtonsAfterDelay()
     {
-        // Wait for 22 seconds
+        // väntar i 22 sekunder
         yield return new WaitForSeconds(22f);
 
-        // Activate the buttons
+        // Aktiverar knapparna
         restartButton.SetActive(true);
         returnButton.SetActive(true);
     }

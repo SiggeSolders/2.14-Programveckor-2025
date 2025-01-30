@@ -3,7 +3,7 @@ using UnityEngine;
 public class day_night : MonoBehaviour
 {
     Vector3 rotation = Vector3.zero;
-    float dayCycleSpeed = 1.2f; // Rotation speed
+    float dayCycleSpeed = 2.4f; // Rotation speed
     float totalRotation = 0f;
 
     GoalsScript goalsScript;
@@ -23,17 +23,18 @@ public class day_night : MonoBehaviour
 
     void Update()
     {
-
+        //Kollar hur mycket den roterar varje frame och roterar med så mycket.
         float rotationThisFrame = dayCycleSpeed * Time.deltaTime;
-
-
         rotation.x = rotationThisFrame;
         transform.Rotate(rotation, Space.World);
 
+        //totalRotation ökar så att när den har roterat ett helt varv blir det en ny dag.
         totalRotation += rotationThisFrame;
 
         if (totalRotation >= 360f)
         {
+            goalsScript.money -= goalsScript.moneyGoal;
+            goalsScript.souls -= goalsScript.soulGoal;
             totalRotation = 0f;
             goalsScript.day++;
             HandleEndOfDay();
@@ -43,6 +44,7 @@ public class day_night : MonoBehaviour
         UpdateSkyboxAndLighting();
     }
 
+    //Om den har roterat mindre än ett halvt varv är skyboxen dag, annas är den natt
     void UpdateSkyboxAndLighting()
     {
 
@@ -63,6 +65,7 @@ public class day_night : MonoBehaviour
         DynamicGI.UpdateEnvironment();
     }
 
+    //Om man har mindre pengar eller själar än man behöver, förlorar man, förutom dag 4 då man får ett val
     void HandleEndOfDay()
     {
         if ((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 4)

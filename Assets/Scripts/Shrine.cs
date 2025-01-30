@@ -17,10 +17,10 @@ public class Shrine : MonoBehaviour
     {
         
     }
-    //Kollar vad för djur det är och offrar det
+    //Kollar om det är ett djur och offrar det och ökar själar
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
+        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep" || other.gameObject.tag == "Wolf")
         {
             if (other.gameObject.tag == "Deer")
             {
