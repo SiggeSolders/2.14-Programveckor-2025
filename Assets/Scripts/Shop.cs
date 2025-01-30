@@ -49,7 +49,7 @@ public class Shop : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep")
+        if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep" || other.gameObject.tag == "Wolf")
         {
             if (other.gameObject.tag == "Deer")
             {
