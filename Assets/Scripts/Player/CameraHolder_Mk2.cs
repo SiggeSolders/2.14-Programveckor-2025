@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class CameraHolder_Mk2 : MonoBehaviour
 {
+    //Detta skript flyttar kameran till spelaren
+    
     public Transform cameraPosition;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         transform.position = cameraPosition.position;
