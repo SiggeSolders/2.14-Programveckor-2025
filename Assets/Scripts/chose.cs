@@ -14,12 +14,15 @@ public class chose : MonoBehaviour
     {
         WinScreen.SetActive(false);
     }
+    //tar fram game over screen
     public void faceTheDevil()
     {
         gameObject.SetActive(false);
         gameOverScreen.SetActive(true);
         Destroy(gameObject);
     }
+
+    // tar fram winscreen
     public void Sacrafice()
     {
         WinScreen.SetActive(true);

@@ -25,20 +25,21 @@ public class GoalsScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Ändrar goals beroende på vilken dag det är
         switch (day)
         {
             case (1):
-                moneyGoal = 50;
+                moneyGoal = 100;
                 soulGoal = 1;
                 break;
 
             case (2):
-                moneyGoal = 100;
-                soulGoal = 2;
+                moneyGoal = 200;
+                soulGoal = 4;
                 break;
 
             case (3):
-                moneyGoal = 200;
+                moneyGoal = 500;
                 soulGoal = 666;
                 break;
 
@@ -54,6 +55,7 @@ public class GoalsScript : MonoBehaviour
 
         if(day == 4)
         {
+            //om man överlever de tre dagarna vinner man
             winScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;

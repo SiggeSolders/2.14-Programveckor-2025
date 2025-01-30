@@ -15,6 +15,7 @@ public class IntroScript : MonoBehaviour
     {
         
     }
+    //Har scenen aktiv i 16.3 sekunder för att visa introt innan den byter till spelet.
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(16.3f);

@@ -15,6 +15,7 @@ public class Developers : MonoBehaviour
     {
 
     }
+    //har scenen öppen under hela videon
     IEnumerator ChangeScene()
     {
         yield return new WaitForSeconds(6.5f);
