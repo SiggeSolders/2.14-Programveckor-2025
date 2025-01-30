@@ -4,7 +4,7 @@ public class Ammo : MonoBehaviour
 {
     [SerializeField] private GameObject Gun;
     private CanvasGroup canvasGroup;
-    private Gun gun_;
+    private Gun gun_; //Vapnet vars skott man hämtar
 
     private bool previousState;
 
@@ -14,9 +14,6 @@ public class Ammo : MonoBehaviour
         gun_ = Gun.GetComponent<Gun>();
         // Spara det ursprungliga tillståndet av parent-object
         previousState = Gun.transform.parent.gameObject.activeSelf;
-
-        // Sätt Ammo-objektets tillstånd baserat på parent
-        //gameObject.SetActive(previousState);
     }
 
     private void Update()
@@ -36,6 +33,7 @@ public class Ammo : MonoBehaviour
 
     public void ShowAmmo(int currentAmmo)
     {
+        //Anväder antalet skott kvar för att räkna ut hur många skott som ska visas
         int i = 0;
         foreach (Transform bullet in transform)
         {

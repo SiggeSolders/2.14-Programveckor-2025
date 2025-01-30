@@ -13,7 +13,6 @@ public class PlayerCamera : MonoBehaviour
 
     public float shake = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -24,10 +23,9 @@ public class PlayerCamera : MonoBehaviour
             ButtonScript.sensitivityY += 400;
         }
     }
-
-    // Update is called once per frame
     void Update()
     {
+        //hämtar musknappens position och gångrar det med sensitivityn
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * ButtonScript.sensitivityX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ButtonScript.sensitivityY;
 

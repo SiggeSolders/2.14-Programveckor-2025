@@ -26,21 +26,13 @@ public class ToggleRagdoll : MonoBehaviour
     }
     void Start()
     {
+        //Stänger av ragdollen i början så djuren inte bara faller samman
         ragdollActive(false);
         rB.isKinematic = true;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        sphereCollider.enabled = true;
-        //if (Input.GetKeyDown(KeyCode.R))
-        {
-            //ragdollActive(true);
-        }
-    }
     public void ragdollActive(bool active)
     {
+        //Sätter på/av alla colliders och ridgidbodies i childer utifrån om ragdollen är av eller på
         foreach (var collider in childernCollider)
         {
             collider.enabled = active;
