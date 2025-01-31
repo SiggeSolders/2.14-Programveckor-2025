@@ -20,7 +20,7 @@ public class ButtonScript : MonoBehaviour
         
         OptionsUI.SetActive(false);
         load();
-
+        // makes volume 1 if nobody changed volume
         if (!PlayerPrefs.HasKey("volume"))
         {
             PlayerPrefs.SetFloat("volume", 1);
@@ -31,6 +31,7 @@ public class ButtonScript : MonoBehaviour
         {
             load();
         }
+        //makes sensitivity 400 if nobody changed sensitivity
         if (!PlayerPrefs.HasKey("sensitivity"))
         {
             PlayerPrefs.SetFloat("sensitivity", 400);
@@ -66,34 +67,39 @@ public class ButtonScript : MonoBehaviour
     }
     public void options()
     {
+        // showes options ui and hides the other ui
         startScreanUI.SetActive(false);
         OptionsUI.SetActive(true);
     }
     public void Back()
     {
+        // hides options ui and shoews the other ui
         OptionsUI.SetActive(false);
         startScreanUI.SetActive(true);
     }
 
     public void changeSensitivity()
     {
-        Debug.Log("changeSensitivity(");
+        //changes sensetivity and saves
         sensetivitySliderText.text = "sensitivity" + sensetivity.value + ")";
         sensetivityNumber = (int)sensetivity.value;
         save();
     }
     public void changeVolume()
     {
+
         AudioListener.volume = volumeSlider.value;
         save();
     }
     private void load()
     {
+        //loads volume and sensetivity
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
         sensetivity.value = PlayerPrefs.GetFloat("sensitivity");
     }
     private void save()
     {
+        //saves volume and sensetivity
         PlayerPrefs.SetFloat("volume", volumeSlider.value);
         PlayerPrefs.SetFloat("sensitivity", sensetivity.value);
         

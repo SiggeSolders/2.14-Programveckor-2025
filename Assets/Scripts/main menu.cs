@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class mainmenu
+public class mainmenu:MonoBehaviour
 {
     [SerializeField] GameObject mainMenueUI;
     [SerializeField] PlayerCamera kamera;
