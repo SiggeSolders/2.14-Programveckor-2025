@@ -47,6 +47,7 @@ public class Shop : MonoBehaviour
     {
          
     }
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Deer" || other.gameObject.tag == "Sheep" || other.gameObject.tag == "Wolf")
@@ -71,6 +72,7 @@ public class Shop : MonoBehaviour
             }
 
         }
+        //Om man går in i shopen öppnas den
         if (other.gameObject.tag == "Player")
         {
             ShopUI.SetActive(true);
