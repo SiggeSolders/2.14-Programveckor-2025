@@ -8,13 +8,12 @@ public class PickUpSkript : MonoBehaviour
     public GameObject pickUpText;
     public GameObject emptyHand;
 
-    public float throwForce = 500f; //force at which the object is thrown at
-    public float pickUpRange = 100f; //how far the player can pickup the object from
-    private float rotationSensitivity = 1f; //how fast/slow the object is rotated in relation to mouse movement
-    private GameObject heldObj; //object which we pick up
-    private Transform topObject;
-    private Rigidbody heldObjRb; //rigidbody of object we pick up
-    private bool canDrop = true; //this is needed so we don't throw/drop object when rotating the object
+    public float throwForce = 500f; 
+    public float pickUpRange = 100f; 
+    private GameObject heldObj; //objektet som flyttas
+    private Transform topObject; //objektet som flyttas (om vi tar en ragdoll)
+    private Rigidbody heldObjRb; 
+    private bool canDrop = true; //För att droppa
     private int LayerNumber; //layer index
     void Start()
     {
@@ -22,6 +21,7 @@ public class PickUpSkript : MonoBehaviour
     }
     void Update()
     {
+        //Om man inte håller i ett vapen och tittar på något man kan plocka upp ska en pop-up säga att man kan plocka upp annars stängs den av
         if (emptyHand.gameObject.activeSelf == true)
         {
             RaycastHit obj;
@@ -53,26 +53,21 @@ public class PickUpSkript : MonoBehaviour
             pickUpText.SetActive(false);
         }
 
-
+        //Om man inte håller i något, klickar på E och tittar på något som har taggen "CanPickUP ska objektet plockas upp
         if (emptyHand.gameObject.activeSelf == true)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if (heldObj == null) //if currently not holding anything
+                if (heldObj == null) //om man inte håller i något
                 {
-                    //perform raycast to check if player is looking at object within pickuprange
+                    //en raycas för att se om det finns något att plocka upp
                     RaycastHit hit;
                     if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, pickUpRange))
                     {
                         //make sure pickup tag is attached
                         if (hit.transform.gameObject.tag == "CanPickUp")
                         {
-                            //pass in object hit into the PickUpObject function
                             PickUpObject(hit.transform.gameObject);
-                            if(hit.transform.gameObject.layer == 10)
-                            {
-
-                            }
                         }
                     }
                 }
@@ -80,22 +75,22 @@ public class PickUpSkript : MonoBehaviour
                 {
                     if (canDrop == true)
                     {
-                        //StopClipping(); //prevents object from clipping through walls
                         DropObject();
                     }
                 }
             }
-            if (heldObj != null) //if player is holding object
+            if (heldObj != null) //om spelaren håller i något
             {
-                MoveObject(); //keep object position at holdPos
-                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true) //Mous0 (leftclick) is used to throw, change this if you want another button to be used)
+                MoveObject();
+                //om spelaren klickar på Mouse0 kastas objectet
+                if (Input.GetKeyDown(KeyCode.Mouse0) && canDrop == true)
                 {
-                    //StopClipping();
                     ThrowObject();
                 }
 
             }
         }
+        // om spelaren byter till ett vapen bör den tappa objectet
         if (emptyHand.gameObject.activeSelf == false)
         {
             if(heldObj != null)
@@ -106,35 +101,35 @@ public class PickUpSkript : MonoBehaviour
     }
     void PickUpObject(GameObject pickUpObj)
     {
-        if (pickUpObj.GetComponent<Rigidbody>()) //make sure the object has a RigidBody
+        if (pickUpObj.GetComponent<Rigidbody>()) //objektet bör ha en ridgidbody
         {
-            heldObj = pickUpObj; //assign heldObj to the object that was hit by the raycast (no longer == null)
-            heldObjRb = pickUpObj.transform.GetComponent<Rigidbody>(); //assign Rigidbody
+            heldObj = pickUpObj; //sätter heald object rätt så att vi vet vad vi flyttar på
+            heldObjRb = pickUpObj.transform.GetComponent<Rigidbody>();
             topObject = pickUpObj.transform.root;
-            heldObjRb.isKinematic = true;
-            //heldObjRb.transform.parent = holdPos.transform; //parent object to holdposition
-            topObject.transform.parent = holdPos.transform;
-            heldObj.layer = LayerNumber; //change the object layer to the holdLayer
-            foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
+            heldObjRb.isKinematic = true; //Stänger av ridgidbody
+            topObject.transform.parent = holdPos.transform; //Flyttar objectet rätt
+            heldObj.layer = LayerNumber; //byter layer så att den inte går igenom väggar
+
+            //stänger av collidern med spelaren då det kan leda till dummheter
+            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
+
+            foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true)) //Gör samma ändringar för alla children (om det är en ragdoll t.ex)
             {
                 child.gameObject.layer = LayerNumber;
                 if (child.GetComponent<Collider>() != null)
                 {
                     Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
                 }
-                //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
             }
-            //make sure object doesnt collide with player, it can cause weird bugs
-            Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), true);
         }
     }
     void DropObject()
     {
-        //re-enable collision with player
+        //sätter på collision med spelaren igen
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
-        heldObj.layer = 0; //object assigned back to default layer
+        heldObj.layer = 0; //sätter tillbaka objectet till 0
         heldObjRb.isKinematic = false;
-        foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
+        foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))//gör detsamma för alla children
         {
             child.gameObject.layer = 0;
             if (child.GetComponent<Collider>() != null)
@@ -142,42 +137,27 @@ public class PickUpSkript : MonoBehaviour
                 Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
             }
         }
-        topObject.transform.parent = null; //unparent object
-        heldObj = null; //undefine game object
+        topObject.transform.parent = null; //unparent objekt
+        heldObj = null; //resettar heldObj
 
     }
     void MoveObject()
     {
-        //keep object position the same as the holdPosition position
+        //håller kvar objektet 
         heldObj.transform.position = holdPos.transform.position;
     }
     void ThrowObject()
     {
-        //same as drop function, but add force to object before undefining it
+        //Exact samma som Drop() men att man lägger till en force
         Physics.IgnoreCollision(heldObj.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         heldObj.layer = 0;
         heldObjRb.isKinematic = false;
         foreach (Transform child in heldObj.GetComponentsInChildren<Transform>(true))
         {
             child.gameObject.layer = 0;
-            //Physics.IgnoreCollision(child.GetComponent<Collider>(), player.GetComponent<Collider>(), false);
         }
         topObject.transform.parent = null;
         heldObjRb.AddForce(transform.forward * throwForce);
         heldObj = null;
     }
-    //void StopClipping() //function only called when dropping/throwing
-    //{
-        //var clipRange = Vector3.Distance(heldObj.transform.position, transform.position); //distance from holdPos to the camera
-        //have to use RaycastAll as object blocks raycast in center screen
-        //RaycastAll returns array of all colliders hit within the cliprange
-        //RaycastHit[] hits;
-        //hits = Physics.RaycastAll(transform.position, transform.TransformDirection(Vector3.forward), clipRange);
-        //if the array length is greater than 1, meaning it has hit more than just the object we are carrying
-        //if (hits.Length > 1)
-        //{
-            //change object position to camera position 
-            //heldObj.transform.position = transform.position + new Vector3(0f, -0.5f, 0f); //offset slightly downward to stop object dropping above player 
-        //}
-    //}
 }

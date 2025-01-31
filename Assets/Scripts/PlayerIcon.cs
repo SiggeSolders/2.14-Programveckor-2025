@@ -14,7 +14,7 @@ public class PlayerIcon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Får rotationen och positionen av playercam och roterar och flyttar kameran rätt
+        // Får rotationen och positionen av playercam och roterar och flyttar kameran rätt för minimapen
         rotation = playerCam.transform.eulerAngles.y;
         posX = playerCam.transform.position.x;
         posZ = playerCam.transform.position.z;
