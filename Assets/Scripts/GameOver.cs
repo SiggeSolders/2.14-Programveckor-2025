@@ -9,6 +9,10 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject returnButton;
     [SerializeField] VideoPlayer money;
     [SerializeField] VideoPlayer souls;
+    [SerializeField] GameObject player;
+    [SerializeField] GameObject stamminaBar;
+    [SerializeField] PlayerCamera playerCamera_;
+    [SerializeField] HeadBob headBob_;
     day_night dayNight;
 
     private void Awake()
@@ -46,6 +50,10 @@ public class GameOver : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         if (dayNight.money == true)
         {
+            player.SetActive(false);
+            stamminaBar.SetActive(false);
+            headBob_.enabled = false;
+            playerCamera_.enabled = false;
             print("CASH");
             money.Play();
             souls.Stop();
@@ -53,6 +61,10 @@ public class GameOver : MonoBehaviour
         }
         if (dayNight.money == false)
         {
+            player.SetActive(false);
+            stamminaBar.SetActive(false);
+            headBob_.enabled = false;
+            playerCamera_.enabled = false;
             print("slous");
             souls.Play();
             money.Stop();
