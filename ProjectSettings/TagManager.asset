@@ -10,6 +10,8 @@ TagManager:
   - Deer
   - Animal
   - Wolf
+  - Win
+  - Bed
   layers:
   - Default
   - TransparentFX
