@@ -17,7 +17,7 @@ public class AnimalSpawner : MonoBehaviour
     // Start 
     void Start()
     {
-        print(goalsScript);
+
     }
 
     // Update is called once per frame

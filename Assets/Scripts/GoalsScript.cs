@@ -8,7 +8,6 @@ public class GoalsScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI soulText;
-    [SerializeField] GameObject winScreen;
     public int money;
     public int moneyGoal;
     public int soulGoal;
@@ -20,7 +19,6 @@ public class GoalsScript : MonoBehaviour
         day = 1;
         money = 0;
         souls = 0;
-        winScreen.SetActive(false);
     }
 
     // Update is called once per frame

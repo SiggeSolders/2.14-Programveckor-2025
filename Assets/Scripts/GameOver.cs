@@ -7,23 +7,19 @@ public class GameOver : MonoBehaviour
 {
     [SerializeField] GameObject restartButton;
     [SerializeField] GameObject returnButton;
+    [SerializeField] VideoPlayer money;
+    [SerializeField] VideoPlayer souls;
     day_night dayNight;
 
     private void Awake()
     {
-        if (dayNight.money)
-        {
-            StartCoroutine(ShowButtonsAfterDelayMoney());
-        }
-        else
-        {
-            StartCoroutine(ShowButtonsAfterDelaySoul());
-        }
+        dayNight = FindAnyObjectByType<day_night>();
+        StartCoroutine(Debug());
 
     }
     private void Update()
     {
-
+        print(dayNight.money);
     }
 
 
@@ -45,14 +41,32 @@ public class GameOver : MonoBehaviour
         restartButton.SetActive(true);
         returnButton.SetActive(true);
     }
+    IEnumerator Debug()
+    {
+        yield return new WaitForSeconds(0.2f);
+        if (dayNight.money == true)
+        {
+            print("CASH");
+            money.Play();
+            souls.Stop();
+            StartCoroutine(ShowButtonsAfterDelayMoney());
+        }
+        if (dayNight.money == false)
+        {
+            print("slous");
+            souls.Play();
+            money.Stop();
+            StartCoroutine(ShowButtonsAfterDelaySoul());
+        }
+    }
     public void Restart()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Return()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 3);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
 
