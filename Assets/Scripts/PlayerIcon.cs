@@ -19,6 +19,6 @@ public class PlayerIcon : MonoBehaviour
         posX = playerCam.transform.position.x;
         posZ = playerCam.transform.position.z;
         transform.position = new Vector3(posX ,39.8f, posZ);
-        transform.rotation = Quaternion.Euler(90, rotation - 90, 0);
+        transform.rotation = Quaternion.Euler(90, rotation, 0);
     }
 }

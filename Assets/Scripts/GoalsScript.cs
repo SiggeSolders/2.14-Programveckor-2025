@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalsScript : MonoBehaviour
 {
@@ -56,7 +57,7 @@ public class GoalsScript : MonoBehaviour
         if(day == 4)
         {
             //om man överlever de tre dagarna vinner man
-            winScreen.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

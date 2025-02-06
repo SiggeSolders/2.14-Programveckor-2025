@@ -11,13 +11,13 @@ public class day_night : MonoBehaviour
     [SerializeField] GameObject chooseScreen;
     [SerializeField] Material daySkybox;
     [SerializeField] Material nightSkybox;
-
+    public bool money;
     private void Start()
     {
         goalsScript = FindAnyObjectByType<GoalsScript>();
         gameOverScreen.SetActive(false);
         chooseScreen.SetActive(false);
-
+        money = false;
         RenderSettings.skybox = daySkybox; 
     }
 
@@ -73,6 +73,10 @@ public class day_night : MonoBehaviour
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            if(goalsScript.money < goalsScript.moneyGoal)
+            {
+                money = true;
+            }
         }
         else if (goalsScript.money < goalsScript.moneyGoal && goalsScript.day == 3)
         {

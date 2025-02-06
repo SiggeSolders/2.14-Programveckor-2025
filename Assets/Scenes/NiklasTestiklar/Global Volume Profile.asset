@@ -30,13 +30,13 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 14.9
+    m_Value: 2.29
   aperture:
     m_OverrideState: 1
-    m_Value: 3.88
+    m_Value: 19.1
   focalLength:
     m_OverrideState: 1
-    m_Value: 24
+    m_Value: 91
   bladeCount:
     m_OverrideState: 0
     m_Value: 5
@@ -192,7 +192,7 @@ MonoBehaviour:
   active: 1
   shadows:
     m_OverrideState: 1
-    m_Value: {x: 0.734402, y: 0.78777736, z: 1, w: 0.51317066}
+    m_Value: {x: 0.734402, y: 0.78777736, z: 1, w: 0.6429505}
   midtones:
     m_OverrideState: 0
     m_Value: {x: 1, y: 0.94075704, z: 0.8296814, w: 0.054794736}
