@@ -1709,6 +1709,10 @@ MonoBehaviour:
   returnButton: {fileID: 184875284}
   money: {fileID: 873563265}
   souls: {fileID: 811775399}
+  player: {fileID: 0}
+  stamminaBar: {fileID: 0}
+  playerCamera_: {fileID: 0}
+  headBob_: {fileID: 0}
 --- !u!224 &676199700 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5178436551717924985, guid: 48c84e86a21dbdf41988a2ac9934783d, type: 3}

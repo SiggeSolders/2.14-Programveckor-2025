@@ -38,16 +38,20 @@ public class GameOver : MonoBehaviour
     }
     IEnumerator ShowButtonsAfterDelaySoul()
     {
-        // väntar i 22 sekunder
+        // väntar i 8.2 sekunder 
         yield return new WaitForSeconds(8.2f);
 
         // Aktiverar knapparna
         restartButton.SetActive(true);
         returnButton.SetActive(true);
     }
+
+    //av någon anledning ville skiten inte funka innan jag lade till en liten delay. Det funkar nu.
     IEnumerator Debug()
     {
         yield return new WaitForSeconds(0.2f);
+
+        //Spelar rätt video beroende på vad man förlorade av. Mycket buggar. Därför lade jag till att den stänger av den andra videon
         if (dayNight.money == true)
         {
             player.SetActive(false);
