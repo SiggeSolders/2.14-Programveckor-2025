@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
+    //Mira har gjort denna kod
 
     public GameObject playerinventory;
     public PlayerMovement playermovement;
@@ -13,11 +14,13 @@ public class Inventory : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        //detta gör så att inventoryt är avstängt när man startar spelet
         playerinventory.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
+        //Följande kod gör så att när man trycker på tab så öppnas inventoryt, då så stängs spelarens movement och kameran av vilket gör så att man inte kan röra sig och kursorn sätts på
     {
        if (Input.GetKeyDown(KeyCode.Tab) && playerinventory.activeSelf == false)
         {
@@ -40,6 +43,7 @@ public class Inventory : MonoBehaviour
         
     }
     public void HideCursor()
+        //detta är metoter som anges i buttons i spelet
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
