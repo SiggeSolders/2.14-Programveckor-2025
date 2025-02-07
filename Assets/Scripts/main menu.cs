@@ -11,7 +11,7 @@ public class mainmenu:MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            
-            //oppens menu on escape and frezes movment
+            //opens menu on escape and frezes movment
             if (mainMenueUI.active)
             {
                 mainMenueUI.SetActive(false);
@@ -48,6 +48,7 @@ public class mainmenu:MonoBehaviour
     }
     public void backToMainMenu()
     {
+        //goes back to start screen
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
