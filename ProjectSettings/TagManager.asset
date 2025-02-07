@@ -12,6 +12,7 @@ TagManager:
   - Wolf
   - Win
   - Bed
+  - Tutorial
   layers:
   - Default
   - TransparentFX
