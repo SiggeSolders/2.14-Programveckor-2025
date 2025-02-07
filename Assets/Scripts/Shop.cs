@@ -82,6 +82,7 @@ public class Shop : MonoBehaviour
             kamera.enabled = false;
         }
     }
+    //Detta gör så att när spelaren kolliderar med shoppen så öppnas shoppens UI
     private void OnTriggerExit(Collider other)
     {
         
@@ -95,6 +96,7 @@ public class Shop : MonoBehaviour
             kamera.enabled = true;
         }
     }
+    //Detta är metoder som används på knappar i shoppen som gör så att man kan köpa objekt
     public void Item1()
     {
         item1.SetActive(true);
@@ -156,6 +158,7 @@ public class Shop : MonoBehaviour
         weapon6.transform.rotation = ogWepon.transform.rotation;
     }
     
+    //Detta är en metod som gör så att man kan stänga shop UI
     public void closeshop()
     {
         ShopUI.SetActive(false);
