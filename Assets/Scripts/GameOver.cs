@@ -13,12 +13,14 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject stamminaBar;
     [SerializeField] PlayerCamera playerCamera_;
     [SerializeField] HeadBob headBob_;
+    [SerializeField] GameObject globalVolume;
     day_night dayNight;
 
     private void Awake()
     {
         dayNight = FindAnyObjectByType<day_night>();
         StartCoroutine(Debug());
+        globalVolume.SetActive(false);
 
     }
     private void Update()
