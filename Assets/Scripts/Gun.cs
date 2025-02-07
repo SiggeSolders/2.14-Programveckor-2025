@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
 
     }
     void Update()
+        //Detta gör så att om man har ammo i pistolen så kan man skjuta
     {
         if (isReloading)
             return;
@@ -49,10 +50,14 @@ public class Gun : MonoBehaviour
     }
     void Shoot ()
     {
+        //DEtta gör så att animationen för att skjuta och muzzleflash spelas
         MuzzleFlash.Play();
         gunShot.Play();
 
+        //Detta gör så att ammon minskas när man skjuter
         currentAmmo--;
+
+        //Detta gör så att man kan döda ett djur om man träffar det
         GameObject.Find("PlayerCamera").GetComponent<PlayerCamera>().shake = 1f;
         RaycastHit hit;
         if(Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit, range))
