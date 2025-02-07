@@ -7,19 +7,11 @@ public class mainmenu:MonoBehaviour
     [SerializeField] PlayerMovement playermovement;
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (mainMenueUI.active == false)
-            {
-                mainMenueUI.SetActive(true);
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                mainMenueUI.SetActive(true);
-                playermovement.enabled = false;
-                kamera.enabled = false;
-            }
+           
             
-            if (mainMenueUI.active == true)
+            if (mainMenueUI.active)
             {
                 mainMenueUI.SetActive(false);
                 Cursor.lockState = CursorLockMode.Locked;
@@ -27,6 +19,14 @@ public class mainmenu:MonoBehaviour
                 mainMenueUI.SetActive(false);
                 playermovement.enabled = true;
                 kamera.enabled = true;
+            }else
+            {
+                mainMenueUI.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                mainMenueUI.SetActive(true);
+                playermovement.enabled = false;
+                kamera.enabled = false;
             }
 
         }
