@@ -8,6 +8,9 @@ public class SatanEncounter : MonoBehaviour
     [SerializeField] VideoPlayer videoPlayer;
     [SerializeField] GameObject canvas;
     [SerializeField] GameObject player;
+    [SerializeField] GameObject stamminaBar;
+    [SerializeField] PlayerCamera playerCamera_;
+    [SerializeField] HeadBob headBob_;
     BoxCollider bC;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -29,6 +32,9 @@ public class SatanEncounter : MonoBehaviour
             videoPlayer.Play();
             player.SetActive(false);
             canvas.SetActive(false);
+            stamminaBar.SetActive(false);
+            headBob_.enabled = false;
+            playerCamera_.enabled = false;
             StartCoroutine(Timer());
         }
     }
@@ -39,5 +45,8 @@ public class SatanEncounter : MonoBehaviour
         Destroy(videoObject);
         player.SetActive(true);
         canvas.SetActive(true);
+        stamminaBar.SetActive(true);
+        playerCamera_.enabled = true;
+        headBob_.enabled = true;
     }
 }

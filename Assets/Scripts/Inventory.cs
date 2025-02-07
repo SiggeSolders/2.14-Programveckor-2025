@@ -19,13 +19,23 @@ public class Inventory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       if (Input.GetKeyDown(KeyCode.Tab))
+       if (Input.GetKeyDown(KeyCode.Tab) && playerinventory.activeSelf == false)
         {
+            print("sätt på");
             playerinventory.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             playermovement.enabled = false;
             camera.enabled = false;
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && playerinventory.activeSelf != false)
+        {
+            print("Stäng av");
+            playerinventory.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            playermovement.enabled = true;
+            camera.enabled = true;
         }
         
     }

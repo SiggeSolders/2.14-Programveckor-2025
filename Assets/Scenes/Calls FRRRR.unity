@@ -2099,74 +2099,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 1699618492500235346, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
   m_PrefabInstance: {fileID: 1244473686610056980}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &964010583
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 964010584}
-  - component: {fileID: 964010585}
-  m_Layer: 3
-  m_Name: PlayerVid
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &964010584
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964010583}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1830730501}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!328 &964010585
-VideoPlayer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 964010583}
-  m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 1942553b0d11f4b4e924efc09258ea48, type: 3}
-  m_TargetCameraAlpha: 1
-  m_TargetCamera3DLayout: 0
-  m_TargetCamera: {fileID: 929916012}
-  m_TargetTexture: {fileID: 0}
-  m_TimeReference: 0
-  m_TargetMaterialRenderer: {fileID: 0}
-  m_TargetMaterialProperty: <noninit>
-  m_RenderMode: 1
-  m_AspectRatio: 2
-  m_DataSource: 0
-  m_TimeUpdateMode: 2
-  m_PlaybackSpeed: 1
-  m_AudioOutputMode: 2
-  m_TargetAudioSources:
-  - {fileID: 0}
-  m_DirectAudioVolumes:
-  - 1
-  m_Url: 
-  m_EnabledAudioTracks: 01
-  m_DirectAudioMutes: 00
-  m_ControlledAudioTrackCount: 1
-  m_PlayOnAwake: 0
-  m_SkipOnDrop: 1
-  m_Looping: 0
-  m_WaitForFirstFrame: 1
-  m_FrameReadyEventEnabled: 0
-  m_VideoShaders: []
 --- !u!114 &1046308149 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2569333156141177557, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
@@ -2841,6 +2773,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shrine 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5886776265784481355, guid: 49697652f2f863549a625333ca14493b, type: 3}
+      propertyPath: m_TargetCamera
+      value: 
+      objectReference: {fileID: 929916012}
+    - target: {fileID: 7050212321443095044, guid: 49697652f2f863549a625333ca14493b, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1975033644}
+    - target: {fileID: 7050212321443095044, guid: 49697652f2f863549a625333ca14493b, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1092077559}
     - target: {fileID: 8945307805628943969, guid: 49697652f2f863549a625333ca14493b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 735.05
@@ -2883,17 +2827,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8945307805628943969, guid: 49697652f2f863549a625333ca14493b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1830730501}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49697652f2f863549a625333ca14493b, type: 3}
---- !u!4 &1682442694 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8945307805628943969, guid: 49697652f2f863549a625333ca14493b, type: 3}
-  m_PrefabInstance: {fileID: 1682442693}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1682892478 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7127417260738737260, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
@@ -3046,77 +2982,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738338410}
   m_CullTransparentMesh: 1
---- !u!1 &1830730500
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1830730501}
-  - component: {fileID: 1830730502}
-  - component: {fileID: 1830730503}
-  m_Layer: 3
-  m_Name: Video
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1830730501
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830730500}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 964010584}
-  m_Father: {fileID: 1682442694}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1830730502
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830730500}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 20, y: 10, z: 28.29}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1830730503
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1830730500}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9715d9ddb67c22748b558d0f099c23d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  videoObject: {fileID: 964010583}
-  videoPlayer: {fileID: 964010585}
-  canvas: {fileID: 1975033644}
-  player: {fileID: 1092077559}
 --- !u!1001 &1870978417
 PrefabInstance:
   m_ObjectHideFlags: 0
