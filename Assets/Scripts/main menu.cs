@@ -10,7 +10,7 @@ public class mainmenu:MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
            
-            
+            //oppens menu on escape and frezes movment
             if (mainMenueUI.active)
             {
                 mainMenueUI.SetActive(false);
@@ -21,6 +21,7 @@ public class mainmenu:MonoBehaviour
                 kamera.enabled = true;
             }else
             {
+                //closes menu on escape and Unfrezes movment
                 mainMenueUI.SetActive(true);
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
@@ -36,6 +37,7 @@ public class mainmenu:MonoBehaviour
     }
     public void closeMenu()
     {
+        //close menu and unfreze movment on button click
         mainMenueUI.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
