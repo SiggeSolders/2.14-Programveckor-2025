@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    //Mira har gjort denna kod
+   
 
     public GameObject playerinventory;
     public PlayerMovement playermovement;
