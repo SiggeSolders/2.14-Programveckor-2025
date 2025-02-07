@@ -9,11 +9,14 @@ public class ButtonScript : MonoBehaviour
 {
     public static float sensitivityX;
     public static float sensitivityY;
+    //gameobjets for star scren and optons here so you can oppen and close opptions 
     public GameObject startScreanUI;
     public GameObject OptionsUI;
+    // sensetivity related varibles
     [SerializeField]private Slider sensetivity;
     [SerializeField] private TextMeshProUGUI sensetivitySliderText;
     int sensetivityNumber;
+    //volume related varibles
     [SerializeField] Slider volumeSlider;
     void Start()
     {
@@ -87,19 +90,19 @@ public class ButtonScript : MonoBehaviour
     }
     public void changeVolume()
     {
-
+        //changes volume and saves
         AudioListener.volume = volumeSlider.value;
         save();
     }
     private void load()
     {
-        //loads volume and sensetivity
+        //loads volume and sensetivity using player prefs
         volumeSlider.value = PlayerPrefs.GetFloat("volume");
         sensetivity.value = PlayerPrefs.GetFloat("sensitivity");
     }
     private void save()
     {
-        //saves volume and sensetivity
+        //saves volume and sensetivity using player prefs
         PlayerPrefs.SetFloat("volume", volumeSlider.value);
         PlayerPrefs.SetFloat("sensitivity", sensetivity.value);
         
