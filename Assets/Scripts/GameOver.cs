@@ -1,7 +1,9 @@
 using System.Collections;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Video;
+using static UnityEngine.Rendering.DebugUI;
 
 public class GameOver : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class GameOver : MonoBehaviour
     [SerializeField] PlayerCamera playerCamera_;
     [SerializeField] HeadBob headBob_;
     [SerializeField] GameObject globalVolume;
+    [SerializeField] GameObject miniMap;
+    [SerializeField] GameObject panel;
+    [SerializeField] GameObject UI;
     day_night dayNight;
 
     private void Awake()
@@ -60,6 +65,9 @@ public class GameOver : MonoBehaviour
             stamminaBar.SetActive(false);
             headBob_.enabled = false;
             playerCamera_.enabled = false;
+            miniMap.SetActive(false);
+            panel.SetActive(false);
+            UI.SetActive(false);
             print("CASH");
             money.Play();
             souls.Stop();
@@ -71,6 +79,9 @@ public class GameOver : MonoBehaviour
             stamminaBar.SetActive(false);
             headBob_.enabled = false;
             playerCamera_.enabled = false;
+            miniMap.SetActive(false);
+            panel.SetActive(false);
+            UI.SetActive(false);
             print("slous");
             souls.Play();
             money.Stop();
