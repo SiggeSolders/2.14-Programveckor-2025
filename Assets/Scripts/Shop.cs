@@ -72,7 +72,7 @@ public class Shop : MonoBehaviour
             }
 
         }
-        //Om man går in i shopen öppnas den
+        //Om man går in i shopen öppnas den och movment fryser
         if (other.gameObject.tag == "Player")
         {
             ShopUI.SetActive(true);
