@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GoalsScript : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] TextMeshProUGUI soulText;
-    [SerializeField] GameObject winScreen;
     public int money;
     public int moneyGoal;
     public int soulGoal;
@@ -19,7 +19,6 @@ public class GoalsScript : MonoBehaviour
         day = 1;
         money = 0;
         souls = 0;
-        winScreen.SetActive(false);
     }
 
     // Update is called once per frame
@@ -56,7 +55,7 @@ public class GoalsScript : MonoBehaviour
         if(day == 4)
         {
             //om man överlever de tre dagarna vinner man
-            winScreen.SetActive(true);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }

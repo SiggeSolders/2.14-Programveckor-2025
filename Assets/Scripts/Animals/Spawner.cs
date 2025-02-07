@@ -17,7 +17,7 @@ public class AnimalSpawner : MonoBehaviour
     // Start 
     void Start()
     {
-        print(goalsScript);
+
     }
 
     // Update is called once per frame
@@ -37,8 +37,8 @@ public class AnimalSpawner : MonoBehaviour
         switch (day)
         {
             case 1:
-                deerNumberSpawned = 30;
-                sheepNumberSpawned = 30;
+                deerNumberSpawned = 50;
+                sheepNumberSpawned = 50;
                 wolfNumberSpawned = 18;
                 break;
             case 2:

@@ -4,21 +4,19 @@ public class day_night : MonoBehaviour
 {
     Vector3 rotation = Vector3.zero;
     float dayCycleSpeed = 0.6f; // Rotation speed
-    float totalRotation = 0f;
+    public float totalRotation = 0f;
 
     GoalsScript goalsScript;
     [SerializeField] GameObject gameOverScreen;
-    [SerializeField] GameObject chooseScreen;
     [SerializeField] Material daySkybox;
     [SerializeField] Material nightSkybox;
-
+    public bool money = false;
     private void Start()
     {
         goalsScript = FindAnyObjectByType<GoalsScript>();
         gameOverScreen.SetActive(false);
-        chooseScreen.SetActive(false);
-
-        RenderSettings.skybox = daySkybox; 
+        money = false;
+        RenderSettings.skybox = daySkybox;
     }
 
     void Update()
@@ -68,21 +66,22 @@ public class day_night : MonoBehaviour
     //Om man har mindre pengar eller själar än man behöver, förlorar man, förutom dag 4 då man får ett val
     void HandleEndOfDay()
     {
-        if ((goalsScript.money < goalsScript.moneyGoal || goalsScript.souls < goalsScript.soulGoal) && goalsScript.day != 4)
+        if (goalsScript.money < goalsScript.moneyGoal && goalsScript.day != 4)
         {
+            money = true;
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if (goalsScript.money < goalsScript.moneyGoal && goalsScript.day == 3)
+        if (goalsScript.souls < goalsScript.soulGoal && goalsScript.day != 4)
         {
+            money = false;
             gameOverScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
         else if (goalsScript.money >= goalsScript.moneyGoal && goalsScript.day == 4)
         {
-            chooseScreen.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
