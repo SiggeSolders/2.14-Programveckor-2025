@@ -23,6 +23,7 @@ public class SatanEncounter : MonoBehaviour
     {
         
     }
+    //När den nuddar spelaren stänger den av saker för att kunna spela videon utan att man kan röra på sig mm.
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == "Player")
@@ -39,6 +40,7 @@ public class SatanEncounter : MonoBehaviour
         }
     }
 
+    //Sätter på allt igen
     IEnumerator Timer()
     {
         yield return new WaitForSeconds(21.3f);

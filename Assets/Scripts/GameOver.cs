@@ -13,12 +13,14 @@ public class GameOver : MonoBehaviour
     [SerializeField] GameObject stamminaBar;
     [SerializeField] PlayerCamera playerCamera_;
     [SerializeField] HeadBob headBob_;
+    [SerializeField] GameObject globalVolume;
     day_night dayNight;
 
     private void Awake()
     {
         dayNight = FindAnyObjectByType<day_night>();
         StartCoroutine(Debug());
+        globalVolume.SetActive(false);
 
     }
     private void Update()
@@ -38,16 +40,20 @@ public class GameOver : MonoBehaviour
     }
     IEnumerator ShowButtonsAfterDelaySoul()
     {
-        // väntar i 22 sekunder
+        // väntar i 8.2 sekunder 
         yield return new WaitForSeconds(8.2f);
 
         // Aktiverar knapparna
         restartButton.SetActive(true);
         returnButton.SetActive(true);
     }
+
+    //av någon anledning ville skiten inte funka innan jag lade till en liten delay. Det funkar nu.
     IEnumerator Debug()
     {
         yield return new WaitForSeconds(0.2f);
+
+        //Spelar rätt video beroende på vad man förlorade av. Mycket buggar. Därför lade jag till att den stänger av den andra videon
         if (dayNight.money == true)
         {
             player.SetActive(false);
