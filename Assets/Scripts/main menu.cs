@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class mainmenu:MonoBehaviour
 {
@@ -44,6 +45,10 @@ public class mainmenu:MonoBehaviour
         mainMenueUI.SetActive(false);
         playermovement.enabled = true;
         kamera.enabled = true;
+    }
+    public void backToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
     }
 
 }
