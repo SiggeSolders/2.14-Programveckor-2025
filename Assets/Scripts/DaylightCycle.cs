@@ -21,6 +21,8 @@ public class day_night : MonoBehaviour
 
     void Update()
     {
+        goalsScript.money = goalsScript.moneyGoal;
+        goalsScript.souls = goalsScript.soulGoal;
         //Kollar hur mycket den roterar varje frame och roterar med så mycket.
         float rotationThisFrame = dayCycleSpeed * Time.deltaTime;
         rotation.x = rotationThisFrame;
@@ -31,8 +33,6 @@ public class day_night : MonoBehaviour
 
         if (totalRotation >= 360f)
         {
-            goalsScript.money -= goalsScript.moneyGoal;
-            goalsScript.souls -= goalsScript.soulGoal;
             totalRotation = 0f;
             goalsScript.day++;
             HandleEndOfDay();
@@ -84,6 +84,11 @@ public class day_night : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+        }
+        else
+        {
+            goalsScript.money -= goalsScript.moneyGoal;
+            goalsScript.souls -= goalsScript.soulGoal;
         }
     }
 }
