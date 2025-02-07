@@ -2470,7 +2470,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106766274735578842, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.490166
+      value: 119.49002
       objectReference: {fileID: 0}
     - target: {fileID: 1129609800402922066, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_SizeDelta.x
@@ -3385,6 +3385,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7837007427627381726, guid: 0fcc08bc764d9924a958593c6ffac13c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 252.66
+      objectReference: {fileID: 0}
     - target: {fileID: 8124521109577665082, guid: 0fcc08bc764d9924a958593c6ffac13c, type: 3}
       propertyPath: kamera
       value: 
@@ -3400,6 +3404,10 @@ PrefabInstance:
     - target: {fileID: 8158099873857948993, guid: 0fcc08bc764d9924a958593c6ffac13c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9206061334173744790, guid: 0fcc08bc764d9924a958593c6ffac13c, type: 3}
+      propertyPath: m_text
+      value: Exit to main menu
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4310,8 +4318,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -317.525, y: 183.11874}
-  m_SizeDelta: {x: -622.94995, y: -358.56247}
+  m_AnchoredPosition: {x: -285.07004, y: 183.11874}
+  m_SizeDelta: {x: -558.04004, y: -358.56247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1763561922
 MonoBehaviour:
@@ -4879,6 +4887,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 50
       objectReference: {fileID: 0}
+    - target: {fileID: 4172552983646432797, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6926192211020179213, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0000014305115
@@ -4920,6 +4932,10 @@ PrefabInstance:
       value: PlayerPrime
       objectReference: {fileID: 0}
     - target: {fileID: 7285446691712138938, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111692219876139714, guid: bd299b9b55128dd4ca6c6704a8ed59f1, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -5279,6 +5295,10 @@ PrefabInstance:
     - target: {fileID: 5745851985205901307, guid: 64ae8e1c515b87844ae3f36d87478453, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8411860665840114614, guid: 64ae8e1c515b87844ae3f36d87478453, type: 3}
+      propertyPath: money
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8411860665840114614, guid: 64ae8e1c515b87844ae3f36d87478453, type: 3}
       propertyPath: daySkybox
