@@ -21,8 +21,6 @@ public class day_night : MonoBehaviour
 
     void Update()
     {
-        goalsScript.money = goalsScript.moneyGoal;
-        goalsScript.souls = goalsScript.soulGoal;
         //Kollar hur mycket den roterar varje frame och roterar med så mycket.
         float rotationThisFrame = dayCycleSpeed * Time.deltaTime;
         rotation.x = rotationThisFrame;
