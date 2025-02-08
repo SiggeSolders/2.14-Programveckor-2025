@@ -58,6 +58,9 @@ public class ButtonScript : MonoBehaviour
     {
         sensitivityX = sensetivityNumber;
         sensitivityY = sensetivityNumber;
+        if (sensetivityNumber ==0){
+            sensetivityNumber = 200;
+        }
     }
     public void PlayGame()
     {
