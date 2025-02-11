@@ -2021,6 +2021,7 @@ GameObject:
   - component: {fileID: 697227168}
   - component: {fileID: 697227167}
   - component: {fileID: 697227170}
+  - component: {fileID: 697227171}
   m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
@@ -2135,6 +2136,18 @@ MonoBehaviour:
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 77afbaa0452be4042a2b27b6e83f17cb, type: 2}
   m_BuildHeightMesh: 0
+--- !u!114 &697227171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 697227166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d335f766e37562d4091c6e255d09dbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &697468415 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4665214393538222973, guid: e704d681fe1a89249b7ffd4480f7046c, type: 3}
@@ -2470,7 +2483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1106766274735578842, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 119.49002
+      value: 125.691605
       objectReference: {fileID: 0}
     - target: {fileID: 1129609800402922066, guid: cdaf5a4289b28c542a6e49f24cd872fc, type: 3}
       propertyPath: m_SizeDelta.x
